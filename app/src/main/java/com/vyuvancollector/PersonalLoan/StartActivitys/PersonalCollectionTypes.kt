@@ -2,9 +2,12 @@ package com.vyuvancollector.PersonalLoan.StartActivitys
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.vyuvancollector.PersonalLoan.TypesOfEMI.*
 import com.vyuvancollector.R
 import com.vyuvancollector.databinding.ActivityPersonalcollectiontypesBinding
@@ -29,6 +32,12 @@ class PersonalCollectionTypes : AppCompatActivity() {
         binding = ActivityPersonalcollectiontypesBinding.inflate(layoutInflater)
 
         setContentView(binding?.root)
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
+        }
 
         binding?.dailyBtn?.setOnClickListener {
            daily()
@@ -126,6 +135,20 @@ class PersonalCollectionTypes : AppCompatActivity() {
         intent.putExtra("typo",typo)
         startActivity(intent)
 
+    }
+
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
     }
 
 }

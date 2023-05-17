@@ -3,6 +3,7 @@ package com.vyuvancollector.PersonalLoan.CustomerLoanDetails
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -57,6 +58,13 @@ class LoanDetailsYearly : AppCompatActivity() {
                 forPdfLoanDetailsApi()
                 Log.e("urvashi","manish sir pareshaan karte hai")
             }
+        }
+
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -307,5 +315,19 @@ class LoanDetailsYearly : AppCompatActivity() {
             }
         }
     }
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
+    }
+
 
 }

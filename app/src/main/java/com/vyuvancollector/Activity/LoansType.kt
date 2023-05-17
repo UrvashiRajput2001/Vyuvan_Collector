@@ -53,6 +53,7 @@ class   LoansType : AppCompatActivity() {
 
         binding?.logoutBtn?.isVisible = false
         binding?.customListBtn?.isVisible = false
+        binding?.messageTxt?.isVisible = false
 
         binding?.menuImg?.setOnClickListener {
             binding?.logoutBtn?.isVisible = true
@@ -99,9 +100,12 @@ class   LoansType : AppCompatActivity() {
         }
 
         if (isConnected()) {
-            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show();
+//            binding?.messageTxt?.isVisible = true
+            binding?.progressBar?.isVisible = false
+            binding?.txtBar?.isVisible = false
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
 
     }

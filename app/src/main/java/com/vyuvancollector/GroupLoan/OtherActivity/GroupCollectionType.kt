@@ -2,9 +2,12 @@ package com.vyuvancollector.GroupLoan.OtherActivity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.core.view.isVisible
 import com.vyuvancollector.GroupLoan.GroupTypesOfEmi.AllInGroup
 import com.vyuvancollector.GroupLoan.GroupTypesOfEmi.MonthlyInGroup
 import com.vyuvancollector.GroupLoan.GroupTypesOfEmi.WeeklyInGroup
@@ -60,6 +63,12 @@ class GroupCollectionType : AppCompatActivity() {
 
         binding?.allBtn?.setOnClickListener {
             all()
+        }
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
 
         val sdf = SimpleDateFormat("dd.MM.yyyy/EEEE")
@@ -180,9 +189,9 @@ class GroupCollectionType : AppCompatActivity() {
                         val online1 = roundOffDecimal(online)
                         val  total = roundOffDecimal(total1)
 
-                        binding?.agentCashTxt?.text = "$cash1"
-                        binding?.agentOnlineTxt?.text = "$online1"
-                        binding?.agentTotalTxt?.text = "$total"
+                        binding?.agentCashTxt?.text = "₹$cash1"
+                        binding?.agentOnlineTxt?.text = "₹$online1"
+                        binding?.agentTotalTxt?.text = "₹$total"
                     }
                 }
             }
@@ -199,10 +208,18 @@ class GroupCollectionType : AppCompatActivity() {
     }
 
 
-
-
-
-
-
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
+    }
 
 }

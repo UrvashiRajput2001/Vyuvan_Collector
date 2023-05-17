@@ -2,10 +2,12 @@ package com.vyuvancollector.AddCustomer
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.vyuvancollector.R
 import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface
@@ -81,6 +83,12 @@ class AddCustomerForm : AppCompatActivity() {
 
 
         }
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun addCustomerApi(){
@@ -134,8 +142,19 @@ class AddCustomerForm : AppCompatActivity() {
                 Log.e("urvashi", "$t your response is fail")
             }
         })
+    }
 
-
-
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
     }
 }

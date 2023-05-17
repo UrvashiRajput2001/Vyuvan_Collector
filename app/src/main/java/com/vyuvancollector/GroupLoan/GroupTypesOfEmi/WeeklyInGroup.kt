@@ -1,6 +1,7 @@
 package com.vyuvancollector.GroupLoan.GroupTypesOfEmi
 
 import android.annotation.SuppressLint
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -51,6 +52,15 @@ class WeeklyInGroup : AppCompatActivity() {
         binding?.backBtn?.setOnClickListener {
             onBackPressed()
         }
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+//            binding?.messageTxt?.isVisible = true
+            binding?.progressBar?.isVisible = false
+            binding?.txtBar?.isVisible = false
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
+        }
+
 
 
     }
@@ -186,26 +196,33 @@ class WeeklyInGroup : AppCompatActivity() {
                                     )
                                 )
                             }
-                            binding?.weeklyEmiRv?.layoutManager =
+                        binding?.weeklyEmiRv?.layoutManager =
                                 LinearLayoutManager(this@WeeklyInGroup)
-                            recyclerView = WeekLyGroupRv(list)
-                            binding?.weeklyEmiRv?.adapter = recyclerView
-                            recyclerView!!.notifyDataSetChanged()
-                        }
-
-
-
+                        recyclerView = WeekLyGroupRv(list)
+                        binding?.weeklyEmiRv?.adapter = recyclerView
+                        recyclerView!!.notifyDataSetChanged()
+                    }
                 }
             }
-
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
 //                Toast.makeText(this@WeeklyInGroup, t.toString(), Toast.LENGTH_LONG).show()
                 Log.e("urvashi", "$t your response is fail")
             }
-
         })
+    }
 
-
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
     }
 
 

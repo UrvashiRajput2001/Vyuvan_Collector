@@ -2,9 +2,11 @@ package com.vyuvancollector.PersonalLoan.StartActivitys
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface
@@ -34,6 +36,12 @@ class PersonalEmiStatus : AppCompatActivity() {
         binding = ActivityPersonalemistatusBinding.inflate(layoutInflater)
 
         setContentView(binding?.root)
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
+        }
 
         binding?.searchBtn?.isVisible = false
 
@@ -177,9 +185,9 @@ class PersonalEmiStatus : AppCompatActivity() {
                         val online1 = roundOffDecimal(online)
                         val  total = roundOffDecimal(total1)
 
-                        binding?.agentCashTxt?.text = "$cash1"
-                        binding?.agentOnlineTxt?.text = "$online1"
-                        binding?.agentTotalTxt?.text = "$total"
+                        binding?.agentCashTxt?.text = "₹$cash1"
+                        binding?.agentOnlineTxt?.text = "₹$online1"
+                        binding?.agentTotalTxt?.text = "₹$total"
 
                     }
 
@@ -196,6 +204,20 @@ class PersonalEmiStatus : AppCompatActivity() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
         return df.format(number).toDouble()
+    }
+
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
     }
 
 

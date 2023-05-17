@@ -1,6 +1,7 @@
 package com.vyuvancollector.GroupLoan.GroupMemberList
 
 import android.annotation.SuppressLint
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -105,6 +106,15 @@ class AllMemberList : AppCompatActivity() {
             binding?.paidBtn?.setTextColor(application.resources.getColor(R.color.black))
             binding?.pendingBtn?.setTextColor(application.resources.getColor(R.color.black))
             overDueAPI()
+        }
+
+        if (isConnected()) {
+//            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
+        } else {
+//            binding?.messageTxt?.isVisible = true
+            binding?.progressBar?.isVisible = false
+            binding?.txtBar?.isVisible = false
+            Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -361,6 +371,20 @@ class AllMemberList : AppCompatActivity() {
                 Log.e("urvashi", "$t your response is fail")
             }
         })
+    }
+
+    private fun isConnected(): Boolean {
+        var connected = false
+        try {
+            val cm =
+                applicationContext.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val nInfo = cm.activeNetworkInfo
+            connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+            return connected
+        } catch (e: Exception) {
+            Log.e("Connectivity Exception", e.message!!)
+        }
+        return connected
     }
 
 

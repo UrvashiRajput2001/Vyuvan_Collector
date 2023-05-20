@@ -1,4 +1,4 @@
-package com.vyuvancollector.Search
+package com.vyuvancollector.PersonalLoan.PersonalLoanSearch
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -10,7 +10,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface

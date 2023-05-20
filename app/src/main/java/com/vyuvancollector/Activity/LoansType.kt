@@ -49,7 +49,7 @@ class   LoansType : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val agentId = bundle?.get("agentId") as String?
 
-        Log.e("Token In LoanType Screen","$token Token")
+        Log.e("Token In LoanType Screen","$token Token $agentId agentId")
 
         binding?.logoutBtn?.isVisible = false
         binding?.customListBtn?.isVisible = false
@@ -145,7 +145,7 @@ class   LoansType : AppCompatActivity() {
                     val items = jsonObject.get("items")
 
                     val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
-                    Log.e("JsonArray1","$status === $jsonArray ===")
+//                    Log.e("JsonArray1","$status === $jsonArray ===")
 
                     if(status == true){
                         for (i in 0 until jsonArray.length()){

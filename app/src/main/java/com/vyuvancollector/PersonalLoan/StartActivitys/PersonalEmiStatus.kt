@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface
 import com.google.gson.JsonObject
-import com.vyuvancollector.Search.PhoneSearch
+import com.vyuvancollector.PersonalLoan.PersonalLoanSearch.PersonalLoanPhoneSearch
 import com.vyuvancollector.databinding.ActivityPersonalemistatusBinding
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -37,6 +37,8 @@ class PersonalEmiStatus : AppCompatActivity() {
 
         setContentView(binding?.root)
 
+        agentPendingTodayAmount()
+
         if (isConnected()) {
 //            Toast.makeText(applicationContext, "Internet Connected", Toast.LENGTH_SHORT).show()
         } else {
@@ -57,6 +59,8 @@ class PersonalEmiStatus : AppCompatActivity() {
 
         agentCollectedAmountApi()
 
+        agentOverDueAmountAPI()
+
         val sdf = SimpleDateFormat("dd.MM.yyyy/EEEE")
         val date : String = sdf.format(Date())
         Log.e("Date","$date")
@@ -73,7 +77,7 @@ class PersonalEmiStatus : AppCompatActivity() {
         var tag = ""
 
         binding?.searchBtn?.setOnClickListener {
-            val intent = Intent(this,PhoneSearch::class.java)
+            val intent = Intent(this, PersonalLoanPhoneSearch::class.java)
             intent.putExtra("token","$token")
             intent.putExtra("agentId","$agentId")
             startActivity(intent)
@@ -204,6 +208,104 @@ class PersonalEmiStatus : AppCompatActivity() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
         return df.format(number).toDouble()
+    }
+
+    private fun agentOverDueAmountAPI(){
+        val bundle = intent.extras
+        @Suppress("DEPRECATION")
+        val token = bundle?.get("token") as String?
+        @Suppress("DEPRECATION")
+        val agentId = bundle?.get("agentId") as String?
+        val loanType = "PL"
+
+        val json = JsonObject()
+        json.addProperty("agentId","$agentId")
+        json.addProperty("loanType","$loanType")
+
+        @Suppress("DEPRECATION")
+        val jsonObject: RequestBody = RequestBody.create(
+            "application/json".toMediaTypeOrNull(), json.toString())
+
+        val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+        val call = apiClient?.postData2(token.toString(),"v1/emi/amount/overDueAmount", jsonObject)
+        call?.enqueue(object : Callback<JsonObject>{
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                if (response.isSuccessful){
+
+                    val res = response.body()
+                    Log.e("urvashi,","$res res ---")
+
+                    val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
+                    val status = jsonObject.getString("status")
+                    val items = jsonObject.getString("items")
+
+                    val jsonObject2 = JSONTokener(items.toString()).nextValue() as JSONObject
+                    Log.e("main","cash $jsonObject2")
+
+                    if(status == "true"){
+                        val agentOverDueAmount = jsonObject2.getDouble("emiAmount")
+
+                        val overDueAmount = roundOffDecimal(agentOverDueAmount)
+
+                        binding?.overdueTxt?.text = "₹$overDueAmount"
+
+                    }
+
+                }
+
+            }
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+
+            }
+
+        })
+
+    }
+
+    private fun agentPendingTodayAmount(){
+        val bundle = intent.extras
+        @Suppress("DEPRECATION")
+        val token = bundle?.get("token") as String?
+        @Suppress("DEPRECATION")
+        val agentId = bundle?.get("agentId") as String?
+        val loanType = "GL"
+
+        val json = JsonObject()
+        json.addProperty("agentId","$agentId")
+        json.addProperty("loanType","$loanType")
+
+        Suppress("DEPRECATION")
+        val jsonObject: RequestBody = RequestBody.create(
+            "application/json".toMediaTypeOrNull(), json.toString())
+
+        val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+        val call = apiClient?.postData2(token.toString(),"v1/emi/amount/todayPendingAmount", jsonObject)
+        call?.enqueue(object : Callback<JsonObject>{
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                if (response.isSuccessful){
+
+                    val res = response.body()
+                    Log.e("urvashi,","$res res ---")
+
+                    val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
+                    val status = jsonObject.getString("status")
+                    val items = jsonObject.getString("items")
+
+                    val jsonObject2 = JSONTokener(items.toString()).nextValue() as JSONObject
+                    Log.e("main","cash $jsonObject2")
+
+                    if(status == "true"){
+                        val todayPendingAmount = jsonObject2.getDouble("todayPendingAmount")
+                        val pendingAmount = roundOffDecimal(todayPendingAmount)
+
+                        binding?.todayDueAmountTxt?.text = "Today Due : ₹$pendingAmount"
+                    }
+                }
+            }
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+            }
+        })
+
     }
 
     private fun isConnected(): Boolean {

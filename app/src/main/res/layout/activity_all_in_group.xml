@@ -35,29 +35,56 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/search_et"
+    <LinearLayout
+        android:id="@+id/date_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/search_icon"
-        android:drawablePadding="7dp"
-        android:hint="Search..."
-        android:imeOptions="actionSearch"
-        android:inputType="number"
-        android:padding="5dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/hint_color"
-        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tag_txt"
-        tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+        tools:ignore="MissingConstraints">
 
+        <TextView
+            android:id="@+id/startDate_btn"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Start Date"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_img"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/endDate_btn"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="End Date"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_img"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_2"
@@ -68,7 +95,7 @@
         android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_et"
+        app:layout_constraintTop_toBottomOf="@+id/date_ll"
         tools:ignore="MissingConstraints">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -124,8 +151,8 @@
 
     <ImageView
         android:id="@+id/sorry_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@drawable/sorry_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

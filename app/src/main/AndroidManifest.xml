@@ -20,6 +20,48 @@
         android:theme="@style/Theme.VYUVANCollector"
         tools:targetApi="31">
         <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLMemberOverdueRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLMemberListPaidRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLMemberListPendingRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLPhoneSearchMemberList"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLPhoneSearchRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.GroupLoanPhoneSearch.GLPhoneSearch"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".RecentLoan.RecentLoanRV"
             android:exported="false">
             <meta-data
@@ -270,28 +312,28 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Search.SearchLoanDetails"
+            android:name=".PersonalLoan.PersonalLoanSearch.SearchLoanDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Search.EmiListRVForPhoneSearch"
+            android:name=".PersonalLoan.PersonalLoanSearch.EmiListRVForPhoneSearch"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Search.RecyclerViewForPhoneSearch"
+            android:name=".PersonalLoan.PersonalLoanSearch.RecyclerViewForPhoneSearch"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Search.PhoneSearch"
+            android:name=".PersonalLoan.PersonalLoanSearch.PersonalLoanPhoneSearch"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

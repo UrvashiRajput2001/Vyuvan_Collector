@@ -7,7 +7,7 @@
     android:paddingBottom="20dp"
     android:fitsSystemWindows="true"
     android:background="@drawable/background_2"
-    tools:context=".Search.PhoneSearch">
+    tools:context=".PersonalLoan.PersonalLoanSearch.PersonalLoanPhoneSearch">
 
     <TextView
         android:id="@+id/tag_txt"

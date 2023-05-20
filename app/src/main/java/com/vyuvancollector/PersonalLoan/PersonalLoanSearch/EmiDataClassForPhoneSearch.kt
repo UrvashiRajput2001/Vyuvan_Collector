@@ -1,4 +1,4 @@
-package com.vyuvancollector.Search
+package com.vyuvancollector.PersonalLoan.PersonalLoanSearch
 
 data class EmiDataClassForPhoneSearch(
     val emiAmount: String,

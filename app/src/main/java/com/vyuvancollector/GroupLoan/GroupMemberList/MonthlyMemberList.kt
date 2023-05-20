@@ -49,6 +49,7 @@ class MonthlyMemberList : AppCompatActivity() {
         binding?.messageTxt?.isVisible = false
         binding?.progressBar?.isVisible = false
         binding?.txtBar?.isVisible = false
+        binding?.sorryImg?.isVisible = false
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -119,6 +120,7 @@ class MonthlyMemberList : AppCompatActivity() {
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
+        binding?.sorryImg?.isVisible = false
 
         var recyclerView : MonthlyMemberPendingListRv? = null
 
@@ -158,6 +160,7 @@ class MonthlyMemberList : AppCompatActivity() {
                     if(jsonArray.isNull(0)){
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
+                        binding?.sorryImg?.isVisible = true
                     }
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
@@ -196,6 +199,7 @@ class MonthlyMemberList : AppCompatActivity() {
         binding?.pendingRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
+        binding?.sorryImg?.isVisible = false
         var recyclerView : MonthlyMemberPaidListRV? = null
         val paid = "1"
 
@@ -230,6 +234,7 @@ class MonthlyMemberList : AppCompatActivity() {
 
                      if(jsonArray.isNull(0)){
                          binding?.messageTxt?.isVisible = true
+                         binding?.sorryImg?.isVisible = true
                          binding?.messageTxt?.text = "No EMI's"
                      }
                      if (status == true) {
@@ -272,6 +277,7 @@ class MonthlyMemberList : AppCompatActivity() {
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = true
         binding?.messageTxt?.isVisible = false
+        binding?.sorryImg?.isVisible = false
         var recyclerView : MonthlyMemberOverDueListRV?
 
         val bundle = intent.extras!!
@@ -311,6 +317,7 @@ class MonthlyMemberList : AppCompatActivity() {
 
                     if(jsonArray.isNull(0)){
                         binding?.messageTxt?.isVisible = true
+                        binding?.sorryImg?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
                     }
 

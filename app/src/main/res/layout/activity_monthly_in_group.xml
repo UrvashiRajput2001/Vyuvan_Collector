@@ -36,7 +36,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/search_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,6 +47,7 @@
         android:drawableStart="@drawable/search_icon"
         android:drawablePadding="10dp"
         android:hint="Search..."
+        android:maxLength="10"
         android:inputType="number"
         android:padding="5dp"
         android:textColor="@color/black"
@@ -122,8 +123,8 @@
 
     <ImageView
         android:id="@+id/sorry_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:src="@drawable/sorry_img"
         app:layout_constraintBottom_toBottomOf="parent"

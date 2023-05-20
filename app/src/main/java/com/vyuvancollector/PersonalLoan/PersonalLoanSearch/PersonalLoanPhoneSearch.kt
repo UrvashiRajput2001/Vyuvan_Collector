@@ -1,4 +1,4 @@
-package com.vyuvancollector.Search
+package com.vyuvancollector.PersonalLoan.PersonalLoanSearch
 
 import android.annotation.SuppressLint
 import android.net.ConnectivityManager
@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PhoneSearch : AppCompatActivity() {
+class PersonalLoanPhoneSearch : AppCompatActivity() {
     private var binding : ActivityPhoneSearchBinding? = null
 
     private var recyclerView : RecyclerViewForPhoneSearch? = null
@@ -157,7 +157,7 @@ class PhoneSearch : AppCompatActivity() {
                                     disburseDate
                                 )
                             )
-                            binding?.customerAllLoansEmiRv?.layoutManager = LinearLayoutManager(this@PhoneSearch)
+                            binding?.customerAllLoansEmiRv?.layoutManager = LinearLayoutManager(this@PersonalLoanPhoneSearch)
                             recyclerView = RecyclerViewForPhoneSearch(list)
                             binding?.customerAllLoansEmiRv?.adapter = recyclerView
                             recyclerView!!.notifyDataSetChanged()

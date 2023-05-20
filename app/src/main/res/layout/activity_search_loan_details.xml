@@ -8,7 +8,7 @@
     android:paddingBottom="20dp"
     android:background="@color/card_color"
     android:fitsSystemWindows="true"
-    tools:context=".Search.SearchLoanDetails">
+    tools:context=".PersonalLoan.PersonalLoanSearch.SearchLoanDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

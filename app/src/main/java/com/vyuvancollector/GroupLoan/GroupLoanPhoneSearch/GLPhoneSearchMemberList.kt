@@ -1,4 +1,4 @@
-package com.vyuvancollector.GroupLoan.GroupMemberList
+package com.vyuvancollector.GroupLoan.GroupLoanPhoneSearch
 
 import android.annotation.SuppressLint
 import android.net.ConnectivityManager
@@ -8,20 +8,17 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.OverDataByCollectionType.WeeklyMemberOverDueData
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.OverDueByCollectionType.WeeklyMemberOverDueListRV
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PaidByCollectionType.WeeklyMemberPaidListRV
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PaidDataByCT.WeeklyMemberPaidData
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PendingByCollectionType.WeeklyMemberPendingListRV
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PendingDataByCT.WeeklyMemberPendingData
+import com.google.gson.JsonObject
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.OverDataByCollectionType.AllMemberOverDueData
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.OverDueByCollectionType.AllMemberOverDueListRV
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PaidByCollectionType.AllMemberPaidListRV
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PaidDataByCT.AllMemberPaidData
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PendingByCollectionType.AllMemberPendingListRV
+import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PendingDataByCT.AllMemberPendingData
 import com.vyuvancollector.R
 import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface
-import com.vyuvancollector.databinding.ActivityWeeklyMemberListBinding
-import com.google.gson.JsonObject
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.OverDueByCollectionType.AllMemberOverDueListRV
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PaidByCollectionType.AllMemberPaidListRV
-import com.vyuvancollector.GroupLoan.GroupMemberListRecycler.PendingByCollectionType.AllMemberPendingListRV
+import com.vyuvancollector.databinding.ActivityGlphoneSearchMemberListBinding
 import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -30,18 +27,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
-class WeeklyMemberList : AppCompatActivity() {
+class GLPhoneSearchMemberList : AppCompatActivity() {
 
-    private var binding : ActivityWeeklyMemberListBinding? = null
+    private var binding : ActivityGlphoneSearchMemberListBinding? = null
 
-    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityWeeklyMemberListBinding.inflate(layoutInflater)
+        binding = ActivityGlphoneSearchMemberListBinding.inflate(layoutInflater)
 
         setContentView(binding?.root)
-
         binding?.pendingRv?.isVisible = false
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
@@ -110,18 +105,17 @@ class WeeklyMemberList : AppCompatActivity() {
             binding?.txtBar?.isVisible = false
             Toast.makeText(applicationContext, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
+
     }
 
-
     private fun pendingAPI(){
+        binding?.messageTxt?.isVisible = false
+        binding?.sorryImg?.isVisible = false
         binding?.pendingRv?.isVisible = true
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
-        binding?.messageTxt?.isVisible = false
-        binding?.sorryImg?.isVisible = false
-
-        var recyclerView : WeeklyMemberPendingListRV? = null
         val pending = "0"
+        var recyclerView : GLMemberListPendingRV? = null
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -135,6 +129,7 @@ class WeeklyMemberList : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val totalGroupMember = bundle.get("totalGroupMember").toString()
 
+
         val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
         val call = apiClient?.postDataGET2(
             token,
@@ -146,9 +141,13 @@ class WeeklyMemberList : AppCompatActivity() {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
 
                 if (response.isSuccessful) {
-                    val list = ArrayList<WeeklyMemberPendingData>()
+                    val list = ArrayList<AllMemberPendingData>()
+
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+                    binding?.messageTxt?.isVisible = false
+                    binding?.sorryImg?.isVisible = false
+
                     val res = response.body()
 
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
@@ -160,7 +159,7 @@ class WeeklyMemberList : AppCompatActivity() {
                     if(jsonArray.isNull(0)){
                         binding?.messageTxt?.isVisible = true
                         binding?.sorryImg?.isVisible = true
-                        binding?.messageTxt?.text = "'NO Emi's'"
+                        binding?.messageTxt?.text = "No EMI's"
                     }
 
                     if (status == true) {
@@ -179,13 +178,13 @@ class WeeklyMemberList : AppCompatActivity() {
                             val phone = jsonObject2.getString("phone")
 
                             list.add(
-                                WeeklyMemberPendingData(
+                                AllMemberPendingData(
                                     id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId
                                 )
                             )
                         }
-                        binding?.pendingRv?.layoutManager = LinearLayoutManager(this@WeeklyMemberList)
-                        recyclerView = WeeklyMemberPendingListRV(list)
+                        binding?.pendingRv?.layoutManager = LinearLayoutManager(this@GLPhoneSearchMemberList)
+                        recyclerView = GLMemberListPendingRV(list)
                         binding?.pendingRv?.adapter = recyclerView
                         recyclerView!!.notifyDataSetChanged()
                     }
@@ -197,14 +196,15 @@ class WeeklyMemberList : AppCompatActivity() {
         })
     }
 
+
     private fun paidAPI(){
+        binding?.messageTxt?.isVisible = false
         binding?.paidRv?.isVisible = true
         binding?.pendingRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
-        binding?.messageTxt?.isVisible = false
         binding?.sorryImg?.isVisible = false
 
-        var recyclerView : WeeklyMemberPaidListRV? = null
+        var recyclerView : GLMemberListPaidRV? = null
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -212,7 +212,11 @@ class WeeklyMemberList : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val groupId = bundle.get("groupId").toString()
         @Suppress("DEPRECATION")
+        val groupName = bundle.get("groupName").toString()
+        @Suppress("DEPRECATION")
         val agentId = bundle.get("agentId").toString()
+        @Suppress("DEPRECATION")
+        val totalGroupMember = bundle.get("totalGroupMember").toString()
 
         val paid = "1"
 
@@ -227,44 +231,46 @@ class WeeklyMemberList : AppCompatActivity() {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 if (response.isSuccessful) {
 
-                    val list = ArrayList<WeeklyMemberPaidData>()
+                    val list = ArrayList<AllMemberPaidData>()
 
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+                    binding?.messageTxt?.isVisible = false
+                    binding?.sorryImg?.isVisible = false
                     val res = response.body()
+                    Log.e("Paid EMI Response","$res responses")
+
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.get("status")
                     val message = jsonObject.get("message")
                     val items = jsonObject.get("items")
-                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
 
+                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
                     if(jsonArray.isNull(0)){
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
                         binding?.sorryImg?.isVisible = true
                     }
-
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
                             val paidEmiAmount = jsonArray.getJSONObject(i).getString("paidEmiAmount")
-                            val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
-                            val lastDateCollect = jsonArray.getJSONObject(i).getString("lastDateCollected")
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
-                            val status = jsonArray.getJSONObject(i).getString("status")
+                            val emiStatus = jsonArray.getJSONObject(i).getString("status")
+                            val lastDateCollected = jsonArray.getJSONObject(i).getString("lastDateCollected")
+                            val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
-
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
                             list.add(
-                                WeeklyMemberPaidData(
-                                    token,name,phone,collectionType,paidEmiAmount,status,dateOfCollect,lastDateCollect
+                                AllMemberPaidData(
+                                    agentId,token,name,phone,collectionType,paidEmiAmount,emiStatus,dateOfCollect,lastDateCollected
                                 )
                             )
                         }
-                        binding?.paidRv?.layoutManager = LinearLayoutManager(this@WeeklyMemberList)
-                        recyclerView = WeeklyMemberPaidListRV(list)
+                        binding?.paidRv?.layoutManager = LinearLayoutManager(this@GLPhoneSearchMemberList)
+                        recyclerView = GLMemberListPaidRV(list)
                         binding?.paidRv?.adapter = recyclerView
                         recyclerView!!.notifyDataSetChanged()
                     }
@@ -276,6 +282,8 @@ class WeeklyMemberList : AppCompatActivity() {
         })
     }
 
+
+
     private fun overDueAPI(){
         binding?.pendingRv?.isVisible = false
         binding?.paidRv?.isVisible = false
@@ -283,7 +291,7 @@ class WeeklyMemberList : AppCompatActivity() {
         binding?.messageTxt?.isVisible = false
         binding?.sorryImg?.isVisible = false
 
-        var recyclerViewOverDue : WeeklyMemberOverDueListRV? = null
+        var recyclerView : GLMemberOverdueRV?
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -298,25 +306,26 @@ class WeeklyMemberList : AppCompatActivity() {
         val totalGroupMember = bundle.get("totalGroupMember").toString()
 
         val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
-        val call = apiClient?.postDataGET2(
-            token,
-            "v1/emi/groupEmi/$agentId/$groupId"
-        )
+        val call = apiClient?.postDataGET2(token, "v1/emi/groupEmi/$agentId/$groupId")
         Log.e("urvashi", "$token  token")
         call?.enqueue(object : Callback<JsonObject> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-                val list = ArrayList<WeeklyMemberOverDueData>()
                 if (response.isSuccessful) {
+                    val list = ArrayList<AllMemberOverDueData>()
+
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+                    binding?.messageTxt?.isVisible = false
+                    binding?.sorryImg?.isVisible = false
                     val res = response.body()
+
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.get("status")
                     val message = jsonObject.get("message")
                     val items = jsonObject.get("items")
-                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
 
+                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
                     if(jsonArray.isNull(0)){
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
@@ -339,16 +348,12 @@ class WeeklyMemberList : AppCompatActivity() {
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
-                            list.add(
-                                WeeklyMemberOverDueData(
-                                    id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,paidEmiAmount,totalGroupMember,groupName,groupId
-                                )
-                            )
+                            list.add(AllMemberOverDueData(id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect, paidEmiAmount,totalGroupMember,groupName,groupId))
                         }
-                        binding?.overdueRv?.layoutManager = LinearLayoutManager(this@WeeklyMemberList)
-                        recyclerViewOverDue = WeeklyMemberOverDueListRV(list)
-                        binding?.overdueRv?.adapter = recyclerViewOverDue
-                        recyclerViewOverDue!!.notifyDataSetChanged()
+                        binding?.overdueRv?.layoutManager = LinearLayoutManager(this@GLPhoneSearchMemberList)
+                        recyclerView = GLMemberOverdueRV(list)
+                        binding?.overdueRv?.adapter = recyclerView
+                        recyclerView!!.notifyDataSetChanged()
                     }
                 }
             }
@@ -357,6 +362,7 @@ class WeeklyMemberList : AppCompatActivity() {
             }
         })
     }
+
     private fun isConnected(): Boolean {
         var connected = false
         try {
@@ -370,5 +376,6 @@ class WeeklyMemberList : AppCompatActivity() {
         }
         return connected
     }
+
 
 }

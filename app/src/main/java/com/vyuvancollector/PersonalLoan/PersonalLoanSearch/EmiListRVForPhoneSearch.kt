@@ -1,8 +1,6 @@
-package com.vyuvancollector.Search
+package com.vyuvancollector.PersonalLoan.PersonalLoanSearch
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

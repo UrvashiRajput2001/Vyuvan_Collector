@@ -1,10 +1,13 @@
 package com.vyuvancollector.GroupLoan.GroupTypesOfEmi
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,12 +17,18 @@ import com.vyuvancollector.Retrofit.ApiClient
 import com.vyuvancollector.Retrofit.ApiInterface
 import com.vyuvancollector.databinding.ActivityAllInGroupBinding
 import com.google.gson.JsonObject
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONTokener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AllInGroup : AppCompatActivity() {
 
@@ -44,6 +53,7 @@ class AllInGroup : AppCompatActivity() {
 
         forAllAPI()
 
+
         binding?.backBtn?.setOnClickListener {
             onBackPressed()
         }
@@ -58,6 +68,154 @@ class AllInGroup : AppCompatActivity() {
         }
 
 
+
+        val loanType = "GL"
+        val bundle = intent.extras!!
+        @Suppress("DEPRECATION")
+        val token = bundle.get("token").toString()
+        @Suppress("DEPRECATION")
+        val agentId = bundle.get("agentId").toString()
+
+        val c : Calendar = Calendar.getInstance()
+        var startYear: Int = c.get(Calendar.YEAR)
+        var startDate: Int = c.get(Calendar.DATE)
+        var startMonth: Int = c.get(Calendar.MONTH)
+        var stopYear: Int = c.get(Calendar.YEAR)
+        var stopDate: Int = c.get(Calendar.DATE)
+        var stopMonth: Int = c.get(Calendar.MONTH)
+        var listener: DatePickerDialog.OnDateSetListener? = null
+        var listener2: DatePickerDialog.OnDateSetListener? = null
+        var initDate: String? = null
+        var endDate: String? = null
+
+
+        listener = DatePickerDialog.OnDateSetListener { datePicker: DatePicker, Year: Int, month: Int, date: Int ->
+            startDate = date
+            startMonth = month
+            startYear = Year
+            var init = "$startDate-${startMonth + 1}-$startYear"
+
+            initDate = parseDate(init.toString())
+            binding?.startDateBtn?.text = initDate
+        }
+
+        binding?.startDateBtn?.setOnClickListener {
+            DatePickerDialog(this, listener, startYear, startMonth, startDate).show()
+        }
+
+        listener2 = DatePickerDialog.OnDateSetListener { view: DatePicker, Year: Int, month: Int, date: Int ->
+            stopDate = date
+            stopMonth = month
+            stopYear = Year
+            val end = "$stopDate-${stopMonth + 1}-$stopYear"
+            endDate = parseDate(end.toString())
+
+            binding?.endDateBtn?.text = endDate
+
+            val json = JsonObject()
+            json.addProperty("agentId", "$agentId")
+            json.addProperty("loanType", "$loanType")
+            json.addProperty("fromDate", "")
+            json.addProperty("toDate", "")
+
+            @Suppress("DEPRECATION")
+            val jsonObjectRequestBody: RequestBody = RequestBody.create(
+                "application/json".toMediaTypeOrNull(), json.toString()
+            )
+
+            val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+            val call = apiClient?.postData2(
+                token,
+                "v1/emi/getEmiList/loanType/getAllEmiByDate",
+                jsonObjectRequestBody
+            )
+            call?.enqueue(object : Callback<JsonObject> {
+                override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                    if (response.isSuccessful) {
+                        val list = ArrayList<AllGroupDetailsData>()
+
+                        binding?.progressBar?.isVisible = false
+                        binding?.txtBar?.isVisible = false
+                        val res = response.body()
+
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+                        val message = jsonObjectMain.get("message")
+                        val items = jsonObjectMain.get("items")
+
+                        val jsonArrayMain = JSONTokener(items.toString()).nextValue() as JSONArray
+
+                        if (jsonArrayMain.isNull(0)) {
+                            binding?.messageTxt?.isVisible = true
+                            binding?.messageTxt?.text = "No EMI's"
+                            binding?.allEmiRv?.isVisible = false
+                            binding?.sorryImg?.isVisible = true
+                        }
+                        if (status == true) {
+                            for (i in 0 until jsonArrayMain.length()) {
+                                val groupDetail =
+                                    jsonArrayMain.getJSONObject(i).getString("groupDetail")
+                                val jsonObject =
+                                    JSONTokener(groupDetail.toString()).nextValue() as JSONObject
+                                val teamLeadName = jsonObject.getString("teamLeadName")
+                                val totalGroupMember = jsonObject.getString("totalGroupMember")
+
+                                val leaderDetail =
+                                    jsonArrayMain.getJSONObject(i).getString("leaderDetail")
+                                val jsonObject2 =
+                                    JSONTokener(leaderDetail.toString()).nextValue() as JSONObject
+                                val groupName = jsonObject2.getString("groupName")
+                                val groupLeaderMobile = jsonObject2.getString("groupLeaderMobile")
+                                val groupLeaderName = jsonObject2.getString("groupLeaderName")
+
+                                val groupLoanDetail =
+                                    jsonArrayMain.getJSONObject(i).getString("groupLoanDetail")
+                                val jsonObject3 =
+                                    JSONTokener(groupLoanDetail.toString()).nextValue() as JSONObject
+                                val groupId = jsonObject3.getString("groupId")
+                                val loanAmount = jsonObject3.getString("loanAmount")
+                                val interest = jsonObject3.getString("interest")
+                                val collectionType = jsonObject3.getString("collectionType")
+                                val disburseDate = jsonObject3.getString("disburseDate")
+
+
+                                list.add(
+                                    AllGroupDetailsData(
+                                        agentId,
+                                        token,
+                                        groupId,
+                                        loanAmount,
+                                        interest,
+                                        teamLeadName,
+                                        groupLeaderName,
+                                        collectionType,
+                                        groupName,
+                                        totalGroupMember,
+                                        groupLeaderMobile,
+                                        disburseDate
+                                    )
+                                )
+                            }
+                            binding?.allEmiRv?.layoutManager = LinearLayoutManager(this@AllInGroup)
+                            recyclerView = AllGroupRv(list)
+                            binding?.allEmiRv?.adapter = recyclerView
+                            recyclerView!!.notifyDataSetChanged()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+
+                }
+            })
+
+        }
+
+        binding?.endDateBtn?.setOnClickListener {
+            DatePickerDialog(this, listener2, stopYear, stopMonth, stopDate).show()
+        }
+
+
     }
 
 
@@ -67,10 +225,13 @@ class AllInGroup : AppCompatActivity() {
 
         binding?.swipeLl?.setOnRefreshListener {
             binding?.swipeLl?.isRefreshing = false
-            forAllAPI()
             binding?.messageTxt?.isVisible = false
             binding?.sorryImg?.isVisible = false
             recyclerView!!.notifyDataSetChanged()
+            binding?.startDateBtn?.text = "Start Date"
+            binding?.endDateBtn?.text = "End Date"
+            forAllAPI()
+
         }
     }
 
@@ -154,6 +315,26 @@ class AllInGroup : AppCompatActivity() {
                 Log.e("urvashi", "$t your response is fail")
             }
         })
+    }
+
+
+
+
+    @SuppressLint("SimpleDateFormat")
+    private fun parseDate(time: String): String? {
+        val inputPattern = "dd-MM-yyyy"
+        val outputPattern = "yyyy-MM-dd"
+        val inputFormat = SimpleDateFormat(inputPattern)
+        val outputFormat = SimpleDateFormat(outputPattern)
+        var date: Date? = null
+        var str: String? = null
+        try {
+            date = inputFormat.parse(time)
+            str = outputFormat.format(date)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return str
     }
 
     private fun isConnected(): Boolean {

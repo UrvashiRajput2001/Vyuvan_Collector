@@ -1,8 +1,6 @@
-package com.vyuvancollector.Search
+package com.vyuvancollector.PersonalLoan.PersonalLoanSearch
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +36,7 @@ class RecyclerViewForPhoneSearch(private val list :List<Data>) : RecyclerView.Ad
         holder.binding.collectionTypeTxt.text = "CollectionType: $collectionType"
 
         holder.binding.ll1.setOnClickListener {
-            val intent = Intent(context,SearchLoanDetails::class.java)
+            val intent = Intent(context, SearchLoanDetails::class.java)
             intent.putExtra("name",name)
             intent.putExtra("phone",phone)
             intent.putExtra("customerId",customerId)

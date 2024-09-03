@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PersonalLoan.PDF.Weekly.PdfWeeklyEMIRecyclerView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/currentDue_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="CollectAmount"
+            android:gravity="center"
+            android:background="@drawable/border_less_padding"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/dateOfCollection_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:background="@drawable/border_less_padding"
+            android:text="DateOfCollection"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/remainingAmount_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="RemainingAmount"
+            android:background="@drawable/border_less_padding"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

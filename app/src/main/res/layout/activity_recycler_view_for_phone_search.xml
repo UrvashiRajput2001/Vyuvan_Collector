@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    tools:context=".PersonalLoan.PersonalLoanSearch.RecyclerViewForPhoneSearch">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/list_Emi_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:id="@+id/ll1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/Name_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name : Urvashi"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/mobile_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Mobile : 6267514363"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/loanAmount_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Loan : 1500"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/collectionType_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="CollectionType: Daily"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/collectEmi_btn"-->
+<!--                android:layout_width="110dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:background="@drawable/blue_button_gradiant"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Collect EMI"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="10sp"-->
+<!--                app:backgroundTint="@null"-->
+<!--                tools:ignore="MissingConstraints" />-->
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

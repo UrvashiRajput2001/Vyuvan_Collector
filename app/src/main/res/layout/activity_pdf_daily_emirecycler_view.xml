@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PersonalLoan.PDF.Daily.PdfDailyEMIRecyclerView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/currentDue_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="CollectAmount"
+            android:gravity="center"
+            android:background="@drawable/border_less_padding"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/dateOfCollection_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:background="@drawable/border_less_padding"
+            android:text="Date"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/remainingAmount_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="EMI Amount"
+            android:background="@drawable/border_less_padding"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/status_Txt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="Status"
+            android:background="@drawable/border_less_padding"
+            android:textColor="#5F5F5F"
+            android:textSize="13sp" />
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

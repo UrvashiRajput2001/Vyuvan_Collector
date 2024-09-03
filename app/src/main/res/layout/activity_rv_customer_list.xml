@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    tools:context=".AddCustomer.RvCustomerList">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/list_Emi_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_view_bg"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:text="Mobile"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Whatsapp"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aadhar"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_margin="10dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#5F5F5F" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:id="@+id/ll1"
+                android:layout_width="200dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/Name_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:maxLines="1"
+                    android:text="Name"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/mobile_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:text="Mobile"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/email_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/whatsapp_txt"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Whatsapp"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/address_txt"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/aadhar_no_txt"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textColor="#5F5F5F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

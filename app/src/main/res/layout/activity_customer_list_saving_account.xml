@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white"
+tools:context=".SavingAccount.CustomerListSavingAccount.CustomerListSavingAccount">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back_btn_icon" />
+
+    <TextView
+        android:id="@+id/tag_txt"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Customer List"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginRight="30dp"
+        android:textStyle="bold" />
+
+
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/ll"
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/search_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/search_icon"
+        android:drawablePadding="10dp"
+        android:hint="Search..."
+        android:imeOptions="actionSearch"
+        android:inputType="number"
+        android:maxLength="10"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:max="100"
+        android:layout_marginTop="40dp"
+        android:progress="1"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/txt_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Please Wait...."
+        android:textColor="#5F5F5F"
+        android:layout_gravity="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/message_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="message"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/customerList_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+</RelativeLayout>

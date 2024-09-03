@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#EC0B0B</color>
+
+    <color name="grey">#5F5F5F</color>
+    <color name="green">#0AB850</color>
+
+    <color name="colorPrimary">#00133B</color>
+    <color name="colorPrimaryDark">#00133B</color>
+    <color name="colorAccent">#00133B</color>
+
+    /*New Design Colors*/
+    <color name="nav_blue">#00133B</color>
+    <color name="light_sky_blue">#4C9699</color>
+    <color name="orange_color">#FF8544</color>
+    <color name="light_gray_bc">#E6E6E6</color>
+    <color name="hint_color">#939393</color>
+    <color name="card_color">#EFF2F4</color>
+
+    <color name="old_blue">#0047AF</color>
+
+</resources>

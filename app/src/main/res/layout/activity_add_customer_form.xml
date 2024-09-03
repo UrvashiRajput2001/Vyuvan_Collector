@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AddCustomer.AddCustomerForm">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Add Customer Details"
+        android:textColor="#5F5F5F"
+        android:layout_gravity="center"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="200dp"
+        android:layout_height="2dp"
+        android:background="#5F5F5F"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Enter Customer Full Name"
+        android:textColor="#5F5F5F"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/name_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Name"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:textColor="#5F5F5F"
+        android:textColorHint="#5F5F5F" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Enter Customer Email"
+        android:textColor="#5F5F5F"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/email_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Email"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:textColor="#5F5F5F"
+        android:textColorHint="#5F5F5F" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Enter Customer Phone NO."
+        android:textColor="#5F5F5F"
+        android:textSize="16sp" />
+
+
+    <EditText
+        android:id="@+id/phone_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Phone"
+        android:inputType="number"
+        android:maxLength="10"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:textColor="#5F5F5F"
+        android:textColorHint="#5F5F5F" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Enter Customer Whatsapp No."
+        android:textColor="#5F5F5F"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/whatsapp_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:textColorHint="#5F5F5F"
+        android:hint="Phone"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:textColor="#5F5F5F"
+        android:inputType="number"
+        android:maxLength="10" />
+
+        <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Enter Customer Permanent Address"
+        android:textColor="#5F5F5F"
+        android:textSize="16sp" />
+        <EditText
+        android:id="@+id/address_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="Permanent Address"
+        android:maxLength="10"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:textColor="#5F5F5F"
+        android:textColorHint="#5F5F5F" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Enter Customer Local Address"
+            android:textColor="#5F5F5F"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/Local_address_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:hint="Local Address"
+            android:maxLength="10"
+            android:padding="10dp"
+            android:paddingStart="10dp"
+            android:textColor="#5F5F5F"
+            android:textColorHint="#5F5F5F" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Enter Aadhar No."
+            android:textColor="#5F5F5F"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/aadhar_no_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:hint="Aadhar No."
+            android:maxLength="12"
+            android:padding="10dp"
+            android:paddingStart="10dp"
+            android:textColor="#5F5F5F"
+            android:textColorHint="#5F5F5F" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/orange_button_background"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Submit"
+        android:textColor="@color/white"
+        app:backgroundTint="@null"
+        android:layout_gravity="center"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

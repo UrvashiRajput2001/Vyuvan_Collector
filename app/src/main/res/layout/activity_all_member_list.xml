@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".GroupLoan.GroupMemberList.AllMemberList">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/group_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Group Name"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/member_count_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Total 0 Members"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <Button
+                    android:id="@+id/pending_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Pending"
+                    android:textColor="@color/black"
+                    android:background="@drawable/status_btn_bg_for_gl"
+                    app:backgroundTint="@null"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/paid_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Paid"
+                    android:textColor="@color/black"
+                    android:background="@drawable/status_btn_bg_for_gl"
+                    app:backgroundTint="@null"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/overdue_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="OverDue"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textColor="@color/black"
+                    android:background="@drawable/status_btn_bg_for_gl"
+                    app:backgroundTint="@null"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:max="100"
+                android:progress="1"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please Wait...."
+                android:textColor="#5F5F5F"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans_bold" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/pending_rv"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/paid_rv"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/overdue_rv"/>
+
+
+
+
+            <ImageView
+                android:id="@+id/sorry_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sorry_img"
+                android:layout_marginTop="150dp" />
+
+
+            <TextView
+                android:id="@+id/message_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Emi's"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="#767676"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/const_layout"
+    android:background="@drawable/background_2"
+    tools:context=".PersonalLoan.StartActivitys.PersonalEmiStatus">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/ll"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back_btn_icon" />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tag_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Personal Loan"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/border_design"
+            app:icon="@drawable/menu"
+            app:iconGravity="textTop"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            app:iconTint="@color/black" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_below="@+id/ll"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/half_square_bg"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/black_square_bg"
+                android:scaleType="center"
+                android:src="@drawable/personal_loan_icon_2" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/todayDueAmount_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Today Due : ₹ 0000000.0"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/date_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Date : 00 00 0000/Monday"
+            android:textColor="@color/hint_color"
+            android:layout_gravity="center"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/date_txt"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/collected_Amount_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/nav_blue_gradient_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circle_border"
+                    android:scaleType="center"
+                    android:src="@drawable/personal_loan_icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cash"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+
+                        <TextView
+                            android:id="@+id/agent_cash_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹000000"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Online"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+
+                        <TextView
+                            android:id="@+id/agent_online_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹000000"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Collected Amount"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    tools:ignore="MissingConstraints" />
+
+
+                <TextView
+                    android:id="@+id/agentTotalTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="₹0000000000.0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    tools:ignore="MissingConstraints" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/overdue_amount_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/nav_blue_gradient_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circle_border"
+                    android:scaleType="center"
+                    android:src="@drawable/personal_loan_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="OverDue Amount"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    tools:ignore="MissingConstraints" />
+
+
+                <TextView
+                    android:id="@+id/overdue_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="₹0000000000.0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    tools:ignore="MissingConstraints" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Category"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pending_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nav_blue_button_bg"
+                    android:gravity="center"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/pending_icon"
+                    app:iconGravity="textTop"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/weekly_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Pending"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/paid_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nav_blue_button_bg"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/paid_icon"
+                    app:iconGravity="textTop"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/weekly_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Paid"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/overdue_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nav_blue_button_bg"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/overdue_icon"
+                    app:iconGravity="textTop"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/monthly_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/all_btn"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="OverDue"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/all_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nav_blue_button_bg"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/custom_icon"
+                    app:iconGravity="textTop"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/weekly_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/daily_btn"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="All"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/search_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/ll"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edittext_background"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:backgroundTint="@null"
+        app:icon="@drawable/search_icon"
+        app:iconSize="20dp"
+        app:iconTint="@color/black" />
+
+</RelativeLayout>

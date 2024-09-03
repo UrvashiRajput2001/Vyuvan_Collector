@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingBottom="10dp"
+    tools:context=".Dialog_box.CashBox">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back_btn_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Collect EMI"
+        android:fontFamily="@font/open_sans_bold"
+        android:textSize="20sp"
+        android:textColor="#234F66"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/layout_for_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cash_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Cash"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/online_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Online"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Barcode_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="BarCode"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cash_box_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/cash_txt"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="1500"
+            android:textColor="#5F5F5F"
+            android:textColorHint="#5F5F5F"
+            android:textSize="18sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cash_pay_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Pay"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cash_msg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/cash_msg_txt"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/open_sans_medium"
+            android:gravity="center"
+            android:text="Is payment successfully collected Cash?"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cash_cancel_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Cancel"
+                android:textColor="@color/orange_color" />
+
+            <Button
+                android:id="@+id/cash_msg_ok_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:text="Ok"
+                android:textColor="@color/orange_color" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar_cash"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/barcode_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/barcode_img"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barcode_vyuvan_img" />
+
+        <TextView
+            android:id="@+id/barcode_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Scan and Pay"
+            android:textColor="#5F5F5F"
+            android:textSize="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/barcode_ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Ok"
+            android:textColor="@color/white"
+            app:backgroundTint="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/barcode_msg_box_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/barcode_msg_txt"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Is payment successfully collected Barcode?"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/barcode_cancel_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Cancel"
+                android:textColor="@color/orange_color" />
+
+            <Button
+                android:id="@+id/barcode_msg_ok_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Ok"
+                android:textColor="@color/orange_color" />
+
+            <ProgressBar
+                android:id="@+id/progressBar_barcode"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/online_msg_box_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/online_message_txt"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Is payment successfully collected online?"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/online_message_cancel_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Cancel"
+                android:textColor="@color/orange_color" />
+
+            <Button
+                android:id="@+id/online_message_ok_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Ok"
+                android:textColor="@color/orange_color" />
+
+            <ProgressBar
+                android:id="@+id/progressBar_online"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/online_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <EditText
+            android:id="@+id/online_cash_txt"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="1500"
+            android:textColor="#5F5F5F"
+            android:textColorHint="#5F5F5F"
+            android:textSize="18sp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/online_pay_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Pay"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/barcode_box_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <EditText
+            android:id="@+id/barcode_cash_txt"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="1500"
+            android:textColor="#5F5F5F"
+            android:textColorHint="#5F5F5F"
+            android:textSize="18sp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/barcode_pay_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_background"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Pay"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

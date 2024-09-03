@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VYUVAN Collector</string>
+
+
+    <string-array name="PaymentMode">
+        <item>Select Mode</item>
+        <item>Cash</item>
+        <item>Online</item>
+        <!-- Add more items as needed -->
+    </string-array>
+
+</resources>
+

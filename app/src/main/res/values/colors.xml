@@ -12,7 +12,7 @@
     <color name="red">#EC0B0B</color>
 
     <color name="grey">#5F5F5F</color>
-    <color name="green">#0BDA51</color>
+    <color name="green">#0AB850</color>
 
     <color name="colorPrimary">#00133B</color>
     <color name="colorPrimaryDark">#00133B</color>
@@ -26,12 +26,6 @@
     <color name="hint_color">#939393</color>
     <color name="card_color">#EFF2F4</color>
 
-
-
-
     <color name="old_blue">#0047AF</color>
-<!--    <color name="main_activity_right_side_background_colour" tools:ignore="ReferenceType">@drawable/main_activity_right_side_background_colour</color>-->
-<!--    <color name="blue_gradient_colour" tools:ignore="ReferenceType">@drawable/blue_gradient_colour</color>-->
-<!--    <color name="main_activity_left_side_background_colour" tools:ignore="ReferenceType">@drawable/main_activity_left_side_background_colour</color>-->
 
 </resources>

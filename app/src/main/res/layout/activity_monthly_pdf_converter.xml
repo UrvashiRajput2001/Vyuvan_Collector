@@ -277,7 +277,7 @@
           android:gravity="center"
           android:background="@drawable/border_less_padding"
           android:textColor="#5F5F5F"
-          android:textSize="14sp" />
+          android:textSize="12sp" />
 
       <TextView
           android:layout_weight="1"
@@ -286,9 +286,9 @@
           android:layout_gravity="end"
           android:gravity="center"
           android:background="@drawable/border_less_padding"
-          android:text="DateOfCollection"
+          android:text="Date"
           android:textColor="#5F5F5F"
-          android:textSize="14sp" />
+          android:textSize="12sp" />
 
       <TextView
           android:layout_weight="1"
@@ -296,10 +296,21 @@
           android:layout_height="wrap_content"
           android:layout_gravity="end"
           android:gravity="center"
-          android:text="RemainingAmount"
+          android:text="EMI Amount"
           android:background="@drawable/border_less_padding"
           android:textColor="#5F5F5F"
-          android:textSize="14sp" />
+          android:textSize="12sp" />
+
+      <TextView
+          android:layout_weight="1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="end"
+          android:gravity="center"
+          android:text="Status"
+          android:background="@drawable/border_less_padding"
+          android:textColor="#5F5F5F"
+          android:textSize="12sp" />
 
 
 

@@ -108,17 +108,6 @@
 
                 </LinearLayout>
 
-
-                <!--                <TextView-->
-                <!--                    android:id="@+id/collectionType_txt"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:fontFamily="@font/poppins_medium"-->
-                <!--                    android:text="EMI CollectionType: Yearly"-->
-                <!--                    android:textColor="#5F5F5F"-->
-                <!--                    android:textSize="14sp" />-->
-
-
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton

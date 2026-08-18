@@ -84,7 +84,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:text="Pending"
-            android:textColor="@color/red"
+            android:textColor="@color/white"
             android:textSize="14dp"
             android:textStyle="bold" />
 

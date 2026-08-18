@@ -20,6 +20,55 @@
         android:theme="@style/Theme.VYUVANCollector"
         tools:targetApi="31">
         <activity
+            android:name=".SavingAccount.CustomerListSavingAccount.CustomerListSavingAccountRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SavingAccount.CustomerListSavingAccount.CustomerListSavingAccount"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SavingAccount.SavingAccountForm"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.OtherActivity.GroupCollectedAmountRv"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.OtherActivity.GroupCollectedAmountActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.OtherActivity.GroupOverDueAmountPageRV"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GroupLoan.OtherActivity.GroupOverDueAmountPageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".GroupLoan.GroupLoanPhoneSearch.GLMemberOverdueRV"
             android:exported="false">
             <meta-data
@@ -247,7 +296,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.vyuvancollector.Activity.LoansType"
+            android:name="com.vyuvancollectors.Activity.LoansType"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

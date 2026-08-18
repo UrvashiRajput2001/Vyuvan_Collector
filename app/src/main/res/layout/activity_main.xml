@@ -128,6 +128,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:hint="Password"
             android:textColor="@color/black"
+            android:imeOptions="actionNext"
             android:textColorHint="@color/hint_color"
             android:textCursorDrawable="@drawable/cursor_color"
             android:textSize="16sp"
@@ -145,6 +146,8 @@
         android:background="@drawable/orange_button_background"
         android:fontFamily="@font/poppins_medium"
         android:text="Login"
+
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"

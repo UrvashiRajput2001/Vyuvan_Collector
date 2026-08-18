@@ -48,7 +48,11 @@ class LoanDetailsMonthly : AppCompatActivity() {
         forLoanDetails()
 
         if (Build.VERSION.SDK_INT < 33) {
+<<<<<<< HEAD
             if (checkPermissions()) {
+=======
+            if (checkAndRequestPermissions()) {
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 Toast.makeText(this, "Permissions Granted..", Toast.LENGTH_SHORT).show()
                 Log.e("permission", "done")
             } else {
@@ -110,6 +114,10 @@ class LoanDetailsMonthly : AppCompatActivity() {
                                 val collectionType = jsonArray2.getJSONObject(j).getString("collectionType")
                                 val emiStatus = jsonArray2.getJSONObject(j).getString("status")
                                 val dateOfCollect = jsonArray2.getJSONObject(j).getString("dateOfCollect")
+<<<<<<< HEAD
+=======
+                                val emiNo = jsonArray2.getJSONObject(j).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
                                 list.add(
@@ -121,7 +129,12 @@ class LoanDetailsMonthly : AppCompatActivity() {
                                         emiStatus,
                                         token,
                                         agentId,
+<<<<<<< HEAD
                                         dateOfCollect
+=======
+                                        dateOfCollect,
+                                        emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                     )
                                 )
 
@@ -310,6 +323,7 @@ class LoanDetailsMonthly : AppCompatActivity() {
         )
     }
 
+<<<<<<< HEAD
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
@@ -329,6 +343,27 @@ class LoanDetailsMonthly : AppCompatActivity() {
             }
         }
     }
+=======
+//    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//
+//        val readImagePermission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) Manifest.permission.READ_MEDIA_IMAGES else Manifest.permission.READ_EXTERNAL_STORAGE
+//
+//        if (requestCode == PERMISSION_CODE) {
+//
+//            if (grantResults.isNotEmpty()) {
+//                if (ContextCompat.checkSelfPermission(this, readImagePermission) == PackageManager.PERMISSION_GRANTED) {
+//
+//                    Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show()
+//
+//                } else {
+//                    Toast.makeText(this, "Permission Denied..", Toast.LENGTH_SHORT).show()
+//                    finish()
+//                }
+//            }
+//        }
+//    }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
     private fun isConnected(): Boolean {
@@ -345,4 +380,47 @@ class LoanDetailsMonthly : AppCompatActivity() {
         return connected
     }
 
+<<<<<<< HEAD
+=======
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with your action
+            } else {
+                // Permission denied, show a message and potentially exit
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+    }
+
+    private fun checkAndRequestPermissions(): Boolean {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_MEDIA_IMAGES),
+                    PERMISSION_CODE
+                )
+                return false
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ),
+                    PERMISSION_CODE
+                )
+                return false
+            }
+        }
+        return true
+    }
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 }

@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:layout_marginBottom="10dp"
+=======
+    android:paddingBottom="10dp"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     tools:context=".GroupLoan.OtherActivity.GroupCollectedAmountRv">
 
     <androidx.cardview.widget.CardView

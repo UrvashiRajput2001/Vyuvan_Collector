@@ -28,6 +28,10 @@ class AllMemberPaidListRV(private val list :List<AllMemberPaidData>) : RecyclerV
         val doc = list[position].dateOfCollect
         val lastdatecollect = list[position].lastDateCollect
         val phone = list[position].phone
+<<<<<<< HEAD
+=======
+        val emiNo = list[position].emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.emiTxt.text = "EMI : $paidEMiAmount"
@@ -35,6 +39,10 @@ class AllMemberPaidListRV(private val list :List<AllMemberPaidData>) : RecyclerV
         holder.binding.dateTxt.text = "DateOfCollect : $doc"
         holder.binding.lastDateOfCollectTxt.text = "LastDateCollect : $lastdatecollect"
         holder.binding.mobileTxt.text = "Mobile: $phone"
+<<<<<<< HEAD
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val status = list[position].status
 

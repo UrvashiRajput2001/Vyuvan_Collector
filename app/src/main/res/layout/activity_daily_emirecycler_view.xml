@@ -138,6 +138,17 @@
                 android:textSize="10sp"
                 app:backgroundTint="@null"
                 tools:ignore="MissingConstraints" />
+<<<<<<< HEAD
+=======
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_gravity="bottom"/>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         </LinearLayout>
 
 

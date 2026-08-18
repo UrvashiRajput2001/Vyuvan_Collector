@@ -4,6 +4,10 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
+<<<<<<< HEAD
+=======
+import android.os.Build
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -46,10 +50,21 @@ class LoanDetailsWeekly : AppCompatActivity() {
         weeklyEMIListAPI()
         forLoanDetails()
 
+<<<<<<< HEAD
         if (checkPermissions()) {
             Toast.makeText(this, "Permissions Granted..", Toast.LENGTH_SHORT).show()
         } else {
             requestPermission()
+=======
+        if (Build.VERSION.SDK_INT < 34) {
+            if (checkAndRequestPermissions()) {
+                Toast.makeText(this, "Permissions Granted..", Toast.LENGTH_SHORT).show()
+                Log.e("permission", "done")
+            } else {
+                requestPermission()
+                Log.e("permission", "not")
+            }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         }
 
         binding?.downloadBtn?.setOnClickListener {
@@ -104,6 +119,10 @@ class LoanDetailsWeekly : AppCompatActivity() {
                                 val collectionType = jsonArray2.getJSONObject(j).getString("collectionType")
                                 val emiStatus = jsonArray2.getJSONObject(j).getString("status")
                                 val dateOfCollect = jsonArray2.getJSONObject(j).getString("dateOfCollect")
+<<<<<<< HEAD
+=======
+                                val emiNo = jsonArray2.getJSONObject(j).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                                 list.add(
                                     WeeklyEmiModal(
@@ -114,7 +133,12 @@ class LoanDetailsWeekly : AppCompatActivity() {
                                         emiStatus,
                                         token,
                                         agentId,
+<<<<<<< HEAD
                                         dateOfCollect
+=======
+                                        dateOfCollect,
+                                        emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                     )
                                 )
                             }
@@ -298,6 +322,7 @@ class LoanDetailsWeekly : AppCompatActivity() {
         )
     }
 
+<<<<<<< HEAD
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
@@ -313,10 +338,78 @@ class LoanDetailsWeekly : AppCompatActivity() {
                     Toast.makeText(this, "Permission Denied..", Toast.LENGTH_SHORT).show()
                     finish()
                 }
+=======
+//    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//
+//        if (requestCode == PERMISSION_CODE) {
+//
+//            if (grantResults.isNotEmpty()) {
+//                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1]
+//                    == PackageManager.PERMISSION_GRANTED) {
+//
+//                    Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show()
+//
+//                } else {
+//                    Toast.makeText(this, "Permission Denied..", Toast.LENGTH_SHORT).show()
+//                    finish()
+//                }
+//            }
+//        }
+//    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permissions", "Permission granted")
+                // Permission granted, proceed with your action
+            } else {
+                Log.d("Permissions", "Permission denied")
+                // Permission denied, show a message and potentially exit
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+                finish()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             }
         }
     }
 
+<<<<<<< HEAD
+=======
+    private fun checkAndRequestPermissions(): Boolean {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permissions", "Requesting READ_MEDIA_IMAGES permission")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_MEDIA_IMAGES),
+                    PERMISSION_CODE
+                )
+                return false
+            } else {
+                Log.d("Permissions", "READ_MEDIA_IMAGES permission already granted")
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                Log.d("Permissions", "Requesting READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ),
+                    PERMISSION_CODE
+                )
+                return false
+            } else {
+                Log.d("Permissions", "READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions already granted")
+            }
+        }
+        return true
+    }
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     private fun isConnected(): Boolean {
         var connected = false
         try {

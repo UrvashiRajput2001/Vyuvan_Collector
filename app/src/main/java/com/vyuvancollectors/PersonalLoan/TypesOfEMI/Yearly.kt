@@ -200,7 +200,13 @@ class Yearly : AppCompatActivity() {
                 DatePickerDialog(this, listener, startYear, startMonth, startDate).show()
             }
 
+<<<<<<< HEAD
             listener2 = DatePickerDialog.OnDateSetListener { view: DatePicker, Year: Int, month: Int, date: Int ->
+=======
+            listener2 = DatePickerDialog.OnDateSetListener { _: DatePicker, Year: Int, month: Int, date: Int ->
+
+                Log.e("kakuda","kakuda")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 stopDate = date
                 stopMonth = month
                 stopYear = Year
@@ -234,6 +240,11 @@ class Yearly : AppCompatActivity() {
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
 
+<<<<<<< HEAD
+=======
+                            Log.e("res ++","$res ++")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")

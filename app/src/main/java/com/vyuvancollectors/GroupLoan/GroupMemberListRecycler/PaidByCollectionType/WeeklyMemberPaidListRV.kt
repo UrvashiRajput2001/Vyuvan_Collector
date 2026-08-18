@@ -2,9 +2,17 @@ package com.vyuvancollectors.GroupLoan.GroupMemberListRecycler.PaidByCollectionT
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+<<<<<<< HEAD
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.vyuvancollectors.GroupLoan.GroupMemberListRecycler.PaidDataByCT.WeeklyMemberPaidData
+=======
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
+import com.vyuvancollectors.GroupLoan.GroupMemberListRecycler.PaidDataByCT.WeeklyMemberPaidData
+import com.vyuvancollectors.R
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import com.vyuvancollectors.databinding.ActivityWeeklyMemberPaidListRvBinding
 
 class WeeklyMemberPaidListRV(private val list :List<WeeklyMemberPaidData>) : RecyclerView.Adapter<WeeklyMemberPaidListRV.MyViewHolder>() {
@@ -27,17 +35,37 @@ class WeeklyMemberPaidListRV(private val list :List<WeeklyMemberPaidData>) : Rec
         val collectionType = list[position].collectionType
         val doc = list[position].doc
         val lastdatecollect = list[position].lastDateCollect
+<<<<<<< HEAD
+=======
+        val emiNo = list[position].emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.emiTxt.text = "EMI : $paidEMiAmount"
         holder.binding.collectionTypeTxt.text = "Type : $collectionType"
         holder.binding.dateTxt.text = "DateOfCollect : $doc"
         holder.binding.lastDateOfCollectTxt.text = "LastDateCollect : $lastdatecollect"
+<<<<<<< HEAD
 
         val status = list[position].status
 
         if (status == "1") {
             holder.binding.collectEmiBtn.isVisible = false
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+
+        val status = list[position].status
+
+        if(status == "1"){
+            holder.binding.collectEmiBtn.text = "Paid"
+            holder.binding.collectEmiBtn.isEnabled = false
+            ContextCompat.getDrawable(context, R.drawable.ellipse_2)
+                ?.let { holder.binding.collectEmiBtn.background = it }
+        }else{
+            holder.binding.collectEmiBtn.text = "Collect"
+            ContextCompat.getDrawable(context, R.drawable.ellipse)
+                ?.let { holder.binding.collectEmiBtn.background = it }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         }
 
     }

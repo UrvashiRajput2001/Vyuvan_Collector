@@ -299,6 +299,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6"
             tools:ignore="MissingConstraints">
 
+<<<<<<< HEAD
             <!--        <LinearLayout-->
             <!--            android:layout_width="wrap_content"-->
             <!--            android:layout_height="wrap_content"-->
@@ -330,6 +331,39 @@
             <!--                android:textColor="@color/black" />-->
 
             <!--        </LinearLayout>-->
+=======
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/weekly_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/nav_blue_button_bg"
+                            android:gravity="center"
+                            app:backgroundTint="@null"
+                            app:icon="@drawable/calendar_icon"
+                            app:iconGravity="textTop"
+                            app:iconSize="30dp"
+                            app:iconTint="@color/white"
+                            app:layout_constraintStart_toEndOf="@+id/weekly_btn"
+                            app:layout_constraintTop_toBottomOf="@+id/textView"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:text="Weekly"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -358,7 +392,11 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/open_sans_regular"
+<<<<<<< HEAD
                     android:text="EMI's"
+=======
+                    android:text="Monthly"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     android:textColor="@color/black" />
 
             </LinearLayout>

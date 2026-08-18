@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -8,4 +9,16 @@
         <item name="font">@font/open_sans_regular</item>
 
     </style>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="font">@font/open_sans_regular</item>
+
+    </style>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </resources>

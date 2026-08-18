@@ -25,10 +25,24 @@ class EmiListDailyAdapter(private val list :List<DailyEmiModal>) : RecyclerView.
         holder.binding.emiAmountTxt.text = "EMIAmount : ${list[position].emiAmount}"
         holder.binding.dateOfCollectionTxt.text = "DateOfCollection : ${list[position].doc}"
         holder.binding.remainingAmountTxt.text = "RemainingAmount : ${list[position].remainingAmount}"
+<<<<<<< HEAD
 
         if (status == "1"){
             holder.binding.statusTxt.text = "Paid"
             holder.binding.statusTxt.setTextColor(Color.parseColor("#0BDA51"))
+=======
+        holder.binding.emiNumTxt.text = "EMI NO. : ${list[position].emiNo}"
+
+        if (status == "1"){
+            holder.binding.statusTxt.text = "Paid"
+//            holder.binding.statusTxt.setTextColor(Color.parseColor("#0BDA51"))
+            holder.binding.statusTxt.setBackgroundColor(Color.parseColor("#0AB850"))
+        }else{
+            holder.binding.statusTxt.text = "Pending"
+//            holder.binding.statusTxt.setTextColor(Color.parseColor("#0BDA51"))
+            holder.binding.statusTxt.setBackgroundColor(Color.parseColor("#EC0B0B"))
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         }
 
     }

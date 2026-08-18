@@ -24,6 +24,11 @@ import com.vyuvancollectors.PersonalLoan.TypesOfEMI.Monthly
 import com.vyuvancollectors.R
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+<<<<<<< HEAD
+=======
+import org.json.JSONObject
+import org.json.JSONTokener
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +48,11 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
     override fun onBindViewHolder(holder: MonthlyEMIRecyclerView.MyViewHolder, position: Int) {
         val context = holder.itemView.context
 
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val typeAgent = "Agent"
 
         val name = list[position].name
@@ -63,7 +73,11 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val lastdateCollected: String = sdf.format(Date())
 
+<<<<<<< HEAD
         holder.binding.NameTxt.text = name
+=======
+        holder.binding.NameTxt.text = "$name"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         holder.binding.mobileTxt.text = "Mobile : $mobile"
         holder.binding.collectedAccountTxt.text = "EMI : $emiAmount"
         holder.binding.dateTxt.text = "Date : $doc"
@@ -81,6 +95,10 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
             ContextCompat.getDrawable(context, R.drawable.ellipse_2)
                 ?.let { holder.binding.collectEmiBtn.background = it }
         }else{
+<<<<<<< HEAD
+=======
+            holder.binding.collectEmiBtn.isEnabled = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             holder.binding.collectEmiBtn.text = "Collect"
             ContextCompat.getDrawable(context, R.drawable.ellipse)
                 ?.let { holder.binding.collectEmiBtn.background = it }
@@ -178,6 +196,11 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val json = JsonObject()
                 json.addProperty("emiId","$emiId")
@@ -198,6 +221,7 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, Monthly::class.java)
                         intent.putExtra("token","$token")
@@ -206,6 +230,24 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
                         context.startActivity(intent)
                         bind.progressBarCash.isVisible = false
                         (context as Activity).finish()
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+                       if(status ==  true) {
+                            Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                            val intent = Intent(context1, Monthly::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId", "$agentId")
+                            intent.putExtra("typo", "$typo")
+                            context.startActivity(intent)
+                            bind.progressBarCash.isVisible = false
+                            (context as Activity).finish()
+                        }else{
+                           Toast.makeText(context, "Emi  is not  Collect Successfully", Toast.LENGTH_LONG)
+                               .show()
+                        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                         Log.e("urvashi", "$t your response is fail")
@@ -251,6 +293,11 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.progressBarOnline.isVisible = true
                 bind.onlineMessageOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
 
                 val json = JsonObject()
@@ -272,6 +319,7 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, Monthly::class.java)
                         intent.putExtra("token","$token")
@@ -280,6 +328,25 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
                         context.startActivity(intent)
                         bind.progressBarOnline.isVisible = false
                         (context as Activity).finish()
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+
+                        val status = jsonObjectMain.get("status")
+                       if(status == true) {
+                            Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                            val intent = Intent(context1, Monthly::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId", "$agentId")
+                            intent.putExtra("typo", "$typo")
+                            context.startActivity(intent)
+                            bind.progressBarOnline.isVisible = false
+                            (context as Activity).finish()
+                        }else{
+                           Toast.makeText(context, "Emi is not  Collect Successfully", Toast.LENGTH_LONG)
+                               .show()
+                        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                         Log.e("urvashi", "$t your response is fail")
@@ -333,6 +400,11 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
 
                 val json = JsonObject()
@@ -354,6 +426,12 @@ class MonthlyEMIRecyclerView(private val list :List<ModalMonthly>) : RecyclerVie
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, Monthly::class.java)
                         intent.putExtra("token","$token")

@@ -27,6 +27,10 @@ class MonthlyMemberPaidListRV(private val list :List<MonthlyMemberPaidData>) : R
         val doc = list[position].doc
         val lastdatecollect = list[position].lastDateCollect
         val phone = list[position].phone
+<<<<<<< HEAD
+=======
+        val emiNo = list[position].emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.emiTxt.text = "EMI: $paidEMiAmount"
@@ -34,6 +38,10 @@ class MonthlyMemberPaidListRV(private val list :List<MonthlyMemberPaidData>) : R
         holder.binding.dateTxt.text = "DateOfCollect: $doc"
         holder.binding.lastDateOfCollectTxt.text = "LastDateCollect: $lastdatecollect"
         holder.binding.mobileTxt.text ="Mobile: $phone"
+<<<<<<< HEAD
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val status = list[position].status
 

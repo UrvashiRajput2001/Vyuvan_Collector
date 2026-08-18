@@ -38,6 +38,11 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
 
         val typeAgent = "Agent"
 
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val lastdateCollected: String = sdf.format(Date())
         val status = list[position].status
@@ -54,6 +59,10 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
         val date = list[position].dateOfCollect
         val phone = list[position].phone
         val paidEMIAmount = list[position].paidEmiAmount
+<<<<<<< HEAD
+=======
+        val  emiNo = list[position].emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.mobileTxt.text = "Mobile : $phone"
@@ -61,6 +70,10 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
         holder.binding.collectionTypeTxt.text = "Type : $collectionType"
         holder.binding.paidEmiTxt.text = "PaidEmiAmount : $paidEMIAmount"
         holder.binding.dateTxt.text = "Date : $date"
+<<<<<<< HEAD
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
 
@@ -143,6 +156,11 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val json = JsonObject()
                 json.addProperty("emiId","$emiId")
@@ -228,6 +246,11 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.progressBarOnline.isVisible = true
                 bind.onlineMessageOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
 
                 val json = JsonObject()
@@ -326,6 +349,11 @@ class WeeklyMemberOverDueListRV(private val list :List<WeeklyMemberOverDueData>)
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
 
                 val json = JsonObject()

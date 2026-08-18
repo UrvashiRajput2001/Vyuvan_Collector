@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <size android:width= "2dp"/>
     <solid android:color="@color/black"/>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:width= "2dp"/>
+    <solid android:color="@color/black"/>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </shape>

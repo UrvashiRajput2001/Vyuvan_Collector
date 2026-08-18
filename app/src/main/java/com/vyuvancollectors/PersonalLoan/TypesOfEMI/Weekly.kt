@@ -607,7 +607,11 @@ class Weekly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI OverDue","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
                             val message = jsonObject.get("message")
@@ -633,6 +637,7 @@ class Weekly : AppCompatActivity() {
                                     val remainingAmount = jsonArray.getJSONObject(i).getString("remainingAmount")
                                     val customerDetail = jsonArray.getJSONObject(i).getString("customerDetails")
 
+<<<<<<< HEAD
                                     val jsonObject2 = JSONTokener(customerDetail.toString()).nextValue() as JSONObject
                                     val name = jsonObject2.getString("name")
                                     val phone = jsonObject2.getString("phone")
@@ -656,6 +661,35 @@ class Weekly : AppCompatActivity() {
                                             emiStatus
                                         )
                                     )
+=======
+                                    val jsonObject2 = JSONTokener(customerDetail.toString()).nextValue() as JSONArray
+                                    for (j in 0 until jsonObject2.length()) {
+                                        val name = jsonObject2.getJSONObject(j).getString("name")
+                                        val phone = jsonObject2.getJSONObject(j).getString("phone")
+
+                                        list.add(
+                                            ModalWeekly(
+                                                name,
+                                                phone,
+                                                emiNo,
+                                                emiId,
+                                                loanAmount,
+                                                emiAmount,
+                                                remainingAmount,
+                                                customerId,
+                                                collectionType,
+                                                loanId,
+                                                agentId,
+                                                token,
+                                                dateOfCollect,
+                                                typo,
+                                                emiStatus
+                                            )
+                                        )
+                                    }
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 }
                                 binding?.weeklyEmiRv?.layoutManager =
                                     LinearLayoutManager(this@Weekly)
@@ -694,7 +728,11 @@ class Weekly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI Paid","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")
@@ -784,6 +822,11 @@ class Weekly : AppCompatActivity() {
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
 
+<<<<<<< HEAD
+=======
+                            Log.e("LILI","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")

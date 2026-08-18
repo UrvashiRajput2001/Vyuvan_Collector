@@ -29,6 +29,16 @@ class GroupCollectedAmountActivity : AppCompatActivity() {
         binding = ActivityGroupCollectedAmountBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+<<<<<<< HEAD
+=======
+        binding?.progressBar?.isVisible = true
+        binding?.txtBar?.isVisible = true
+        binding?.swipeLl?.isRefreshing = false
+        binding?.messageTxt?.isVisible = false
+        binding?.swipeLl?.isRefreshing = false
+        binding?.sorryImg?.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.backBtn?.setOnClickListener {
             onBackPressed()
         }
@@ -72,6 +82,11 @@ class GroupCollectedAmountActivity : AppCompatActivity() {
                     binding?.txtBar?.isVisible = false
                     val res = response.body()
 
+<<<<<<< HEAD
+=======
+                    Log.e("group","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.get("status")
                     val message = jsonObject.get("message")

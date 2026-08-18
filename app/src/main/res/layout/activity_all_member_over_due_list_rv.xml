@@ -62,6 +62,7 @@
                     android:textColor="@color/black"
                     android:textSize="10sp" />
 
+<<<<<<< HEAD
                 <TextView
                     android:id="@+id/date_txt"
                     android:layout_width="wrap_content"
@@ -70,6 +71,43 @@
                     android:textColor="@color/black"
                     android:text="Date : 00-00-0000"
                     android:textSize="10sp"/>
+=======
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/black"
+                        android:text="Date : 00-00-0000"
+                        android:layout_marginRight="5dp"
+                        android:textSize="10sp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/emi_num_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/black"
+                        android:text="EMI NO : 0"
+                        android:textSize="10sp"/>
+
+
+
+
+                </LinearLayout>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -123,6 +161,23 @@
                 android:textSize="10sp"
                 app:backgroundTint="@null"
                 tools:ignore="MissingConstraints" />
+<<<<<<< HEAD
+=======
+
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_gravity="bottom"/>
+
+
+
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         </LinearLayout>
 
 

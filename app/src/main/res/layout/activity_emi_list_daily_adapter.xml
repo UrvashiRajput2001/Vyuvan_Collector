@@ -49,6 +49,27 @@
             android:text="Due on : 00.00.0000"
             android:textColor="@color/black"
             android:textSize="12sp" />
+<<<<<<< HEAD
+=======
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/emi_num_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="EMI NO. : 0"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     </LinearLayout>
 
 
@@ -86,7 +107,11 @@
             android:gravity="center"
             android:padding="3dp"
             android:text="Pending"
+<<<<<<< HEAD
             android:textColor="@color/red"
+=======
+            android:textColor="@color/white"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             android:textSize="14dp"
             android:textStyle="bold" />
 

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/vyuvan_logo_background"/>
     <foreground android:drawable="@mipmap/vyuvan_logo_foreground"/>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/vyuvan_logo_background"/>
+    <foreground android:drawable="@mipmap/vyuvan_logo_foreground"/>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </adaptive-icon>

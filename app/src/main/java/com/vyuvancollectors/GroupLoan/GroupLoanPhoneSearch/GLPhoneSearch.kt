@@ -3,6 +3,10 @@ package com.vyuvancollectors.GroupLoan.GroupLoanPhoneSearch
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+<<<<<<< HEAD
+=======
+import android.util.Log
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -95,6 +99,11 @@ class GLPhoneSearch : AppCompatActivity() {
                         binding?.txtBar?.isVisible = false
                         val res = response.body()
 
+<<<<<<< HEAD
+=======
+                        Log.e("phone","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                         val status = jsonObject.get("status")
                         val message = jsonObject.get("message")

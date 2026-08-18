@@ -172,6 +172,10 @@ class WeeklyMemberList : AppCompatActivity() {
                             val loanId = jsonArray.getJSONObject(i).getString("loanId")
                             val status = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
@@ -179,7 +183,11 @@ class WeeklyMemberList : AppCompatActivity() {
 
                             list.add(
                                 WeeklyMemberPendingData(
+<<<<<<< HEAD
                                     id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId
+=======
+                                    id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -253,6 +261,10 @@ class WeeklyMemberList : AppCompatActivity() {
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                             val status = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
@@ -260,7 +272,11 @@ class WeeklyMemberList : AppCompatActivity() {
 
                             list.add(
                                 WeeklyMemberPaidData(
+<<<<<<< HEAD
                                     token,name,phone,collectionType,paidEmiAmount,status,dateOfCollect,lastDateCollect
+=======
+                                    token,name,phone,collectionType,paidEmiAmount,status,dateOfCollect,lastDateCollect,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -314,6 +330,11 @@ class WeeklyMemberList : AppCompatActivity() {
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
                     val res = response.body()
+<<<<<<< HEAD
+=======
+
+                    Log.e("kakuda","$res ---")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.get("status")
                     val message = jsonObject.get("message")
@@ -337,6 +358,10 @@ class WeeklyMemberList : AppCompatActivity() {
                             val loanId = jsonArray.getJSONObject(i).getString("loanId")
                             val status = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
@@ -344,7 +369,11 @@ class WeeklyMemberList : AppCompatActivity() {
 
                             list.add(
                                 WeeklyMemberOverDueData(
+<<<<<<< HEAD
                                     id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,paidEmiAmount,totalGroupMember,groupName,groupId
+=======
+                                    id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,paidEmiAmount,totalGroupMember,groupName,groupId,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }

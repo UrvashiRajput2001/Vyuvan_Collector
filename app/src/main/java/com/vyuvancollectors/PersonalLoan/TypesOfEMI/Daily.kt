@@ -116,7 +116,11 @@ class Daily : AppCompatActivity() {
                         binding?.txtBar?.isVisible = false
                         binding?.sorryImg?.isVisible = false
                         val res = response.body()
+<<<<<<< HEAD
                         Log.e("Urvashi", "$res res")
+=======
+                        Log.e("LILI ", "$res res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                         val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                         val status = jsonObject.get("status")
@@ -616,7 +620,11 @@ class Daily : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI Overdue","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
                             val message = jsonObject.get("message")
@@ -644,6 +652,7 @@ class Daily : AppCompatActivity() {
                                     val remainingAmount = jsonArray.getJSONObject(i).getString("remainingAmount")
                                     val customerDetails = jsonArray.getJSONObject(i).getString("customerDetails")
 
+<<<<<<< HEAD
                                     val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                                     val name = jsonObject2.getString("name")
                                     val phone = jsonObject2.getString("phone")
@@ -667,6 +676,35 @@ class Daily : AppCompatActivity() {
                                             emiStatus
                                         )
                                     )
+=======
+                                    val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONArray
+                                   for  (j in 0 until jsonObject2.length()) {
+                                        val name = jsonObject2.getJSONObject(j).getString("name")
+                                        val phone = jsonObject2.getJSONObject(j).getString("phone")
+
+                                       list.add(
+                                           ModalDaily(
+                                               name,
+                                               phone,
+                                               emiNo,
+                                               emiId,
+                                               loanAmount,
+                                               emiAmount,
+                                               remainingAmount,
+                                               customerId,
+                                               collectionType,
+                                               loanId,
+                                               agentId,
+                                               token,
+                                               dateOfCollect,
+                                               typo,
+                                               emiStatus
+                                           )
+                                       )
+                                    }
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 }
                                 binding?.dailyEmiRv?.layoutManager = LinearLayoutManager(this@Daily)
                                 recyclerView = DailyEMIRecyclerView(list)
@@ -705,7 +743,11 @@ class Daily : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI PAid","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")
@@ -794,7 +836,11 @@ class Daily : AppCompatActivity() {
                             binding?.txtBar?.isVisible = false
                             binding?.swipeLl?.isRefreshing = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI Pending","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")
@@ -902,6 +948,10 @@ class Daily : AppCompatActivity() {
                             binding?.txtBar?.isVisible = false
                             binding?.swipeLl?.isRefreshing = false
                             val res = response.body()
+<<<<<<< HEAD
+=======
+                            Log.e("LILI OverDue","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
@@ -995,7 +1045,11 @@ class Daily : AppCompatActivity() {
                             binding?.txtBar?.isVisible = false
                             binding?.swipeLl?.isRefreshing = false
                             val res = response.body()
+<<<<<<< HEAD
 
+=======
+                            Log.e("LILI Paid","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
                             val message = jsonObject.get("message")
@@ -1089,6 +1143,11 @@ class Daily : AppCompatActivity() {
                             binding?.swipeLl?.isRefreshing = false
                             val res = response.body()
 
+<<<<<<< HEAD
+=======
+                            Log.e("LILI Pending","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
                             val message = jsonObject.get("message")

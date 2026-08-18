@@ -16,6 +16,11 @@ import com.vyuvancollectors.Retrofit.ApiClient
 import com.vyuvancollectors.Retrofit.ApiInterface
 import com.vyuvancollectors.databinding.ActivityAllInGroupBinding
 import com.google.gson.JsonObject
+<<<<<<< HEAD
+=======
+import com.vyuvancollectors.GroupLoan.AdapterInGroup.MonthlyGroupRv
+import com.vyuvancollectors.GroupLoan.Group_Data_Class.MonthlyGroupDetailsData
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import org.json.JSONArray
@@ -52,7 +57,11 @@ class AllInGroup : AppCompatActivity() {
         binding?.swipeLl?.isRefreshing = false
         binding?.sorryImg?.isVisible = false
 
+<<<<<<< HEAD
         forAllAPI()
+=======
+        forMonthlyApi()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
         binding?.backBtn?.setOnClickListener {
@@ -116,8 +125,13 @@ class AllInGroup : AppCompatActivity() {
             val json = JsonObject()
             json.addProperty("agentId", "$agentId")
             json.addProperty("loanType", "$loanType")
+<<<<<<< HEAD
             json.addProperty("fromDate", "")
             json.addProperty("toDate", "")
+=======
+            json.addProperty("fromDate", "$initDate")
+            json.addProperty("toDate", "$endDate")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
             @Suppress("DEPRECATION")
             val jsonObjectRequestBody: RequestBody = RequestBody.create(
@@ -134,10 +148,18 @@ class AllInGroup : AppCompatActivity() {
                 override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                     if (response.isSuccessful) {
                         val list = ArrayList<AllGroupDetailsData>()
+<<<<<<< HEAD
 
                         binding?.progressBar?.isVisible = false
                         binding?.txtBar?.isVisible = false
                         val res = response.body()
+=======
+                        binding?.allEmiRv?.isVisible = false
+
+
+                        val res = response.body()
+                        Log.e("date","$res ")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                         val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
                         val status = jsonObjectMain.get("status")
@@ -146,6 +168,7 @@ class AllInGroup : AppCompatActivity() {
 
                         val jsonArrayMain = JSONTokener(items.toString()).nextValue() as JSONArray
 
+<<<<<<< HEAD
                         if (jsonArrayMain.isNull(0)) {
                             binding?.messageTxt?.isVisible = true
                             binding?.messageTxt?.text = "No EMI's"
@@ -156,13 +179,32 @@ class AllInGroup : AppCompatActivity() {
                             for (i in 0 until jsonArrayMain.length()) {
                                 val groupDetail =
                                     jsonArrayMain.getJSONObject(i).getString("groupDetail")
+=======
+                        if (jsonArrayMain.isNull(0) ) {
+                            binding?.allEmiRv?.isVisible = false
+                            binding?.messageTxt?.isVisible = true
+                            binding?.messageTxt?.text = "No EMI's"
+                            binding?.sorryImg?.isVisible = true
+                        }
+                        if (status == true) {
+                            binding?.progressBar?.isVisible = false
+                            binding?.txtBar?.isVisible = false
+                            binding?.allEmiRv?.isVisible = true
+                            for (i in 0 until jsonArrayMain.length()) {
+                                val groupDetail =
+                                    jsonArrayMain.getJSONObject(i).getString("groupDetails")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val jsonObject =
                                     JSONTokener(groupDetail.toString()).nextValue() as JSONObject
                                 val teamLeadName = jsonObject.getString("teamLeadName")
                                 val totalGroupMember = jsonObject.getString("totalGroupMember")
 
                                 val leaderDetail =
+<<<<<<< HEAD
                                     jsonArrayMain.getJSONObject(i).getString("leaderDetail")
+=======
+                                    jsonArrayMain.getJSONObject(i).getString("leaderDetails")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val jsonObject2 =
                                     JSONTokener(leaderDetail.toString()).nextValue() as JSONObject
                                 val groupName = jsonObject2.getString("groupName")
@@ -170,7 +212,11 @@ class AllInGroup : AppCompatActivity() {
                                 val groupLeaderName = jsonObject2.getString("groupLeaderName")
 
                                 val groupLoanDetail =
+<<<<<<< HEAD
                                     jsonArrayMain.getJSONObject(i).getString("groupLoanDetail")
+=======
+                                    jsonArrayMain.getJSONObject(i).getString("groupLoanDetails")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val jsonObject3 =
                                     JSONTokener(groupLoanDetail.toString()).nextValue() as JSONObject
                                 val groupId = jsonObject3.getString("groupId")
@@ -202,6 +248,11 @@ class AllInGroup : AppCompatActivity() {
                             binding?.allEmiRv?.adapter = recyclerView
                             recyclerView!!.notifyDataSetChanged()
                         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                 }
 
@@ -231,18 +282,28 @@ class AllInGroup : AppCompatActivity() {
             recyclerView!!.notifyDataSetChanged()
             binding?.startDateBtn?.text = "Start Date"
             binding?.endDateBtn?.text = "End Date"
+<<<<<<< HEAD
             forAllAPI()
+=======
+            forMonthlyApi()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         }
     }
 
+<<<<<<< HEAD
     private fun forAllAPI(){
+=======
+    private fun forMonthlyApi(){
+        val monthly = "Monthly"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
         val token = bundle.get("token").toString()
         @Suppress("DEPRECATION")
         val agentId = bundle.get("agentId").toString()
 
+<<<<<<< HEAD
         val monthly = "Monthly"
 
         val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
@@ -250,10 +311,18 @@ class AllInGroup : AppCompatActivity() {
             token,typeAgent,
             "v1/groupDetails/$agentId/$monthly"
         )
+=======
+        Log.e("forMonthlyApi","forMonthlyApi $agentId")
+
+        val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+        val call = apiClient?.getTwoHeadersWithTokenData(
+            token,typeAgent, "v1/groupDetails/$agentId")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         Log.e("urvashi", "$token  token")
         call?.enqueue(object : Callback<JsonObject> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+<<<<<<< HEAD
                 if (response.isSuccessful) {
                     val list = ArrayList<AllGroupDetailsData>()
                     binding?.progressBar?.isVisible = false
@@ -275,13 +344,46 @@ class AllInGroup : AppCompatActivity() {
 
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
+=======
+                Log.e("urvashi","$response")
+                if (response.isSuccessful) {
+
+                    val list = ArrayList<AllGroupDetailsData>()
+
+                    val res = response.body()
+                    val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
+
+                    Log.e("monthly","res $res")
+
+                    val status = jsonObject.get("status")
+                    val message = jsonObject.get("message")
+                    val items = jsonObject.get("items")
+                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
+
+                    if (jsonArray.isNull(0)) {
+                        binding?.messageTxt?.isVisible = true
+                        binding?.messageTxt?.text = "No EMI's"
+                        binding?.sorryImg?.isVisible = true
+                        binding?.allEmiRv?.isVisible = false
+                    }
+
+                    if (status == true) {
+                        binding?.allEmiRv?.isVisible = true
+                        binding?.progressBar?.isVisible = false
+                        binding?.txtBar?.isVisible = false
+                        for (i in 0 until jsonArray.length()) {
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val groupId = jsonArray.getJSONObject(i).getString("groupId")
                             val loanAmount = jsonArray.getJSONObject(i).getString("loanAmount")
                             val interest = jsonArray.getJSONObject(i).getString("interest")
                             val disburseDate = jsonArray.getJSONObject(i).getString("disburseDate")
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                             val groupDetails = jsonArray.getJSONObject(i).getString("groupDetails")
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject2 = JSONTokener(groupDetails.toString()).nextValue() as JSONObject
                             val teamLeadName = jsonObject2.getString("teamLeadName")
                             val totalGroupMember = jsonObject2.getString("totalGroupMember")
@@ -292,6 +394,7 @@ class AllInGroup : AppCompatActivity() {
                             val groupLeaderName = jsonObject3.getString("groupLeaderName")
                             val groupLeaderMobile = jsonObject3.getString("groupLeaderMobile")
 
+<<<<<<< HEAD
                             list.add(AllGroupDetailsData(
                                 agentId,
                                 token,
@@ -318,6 +421,54 @@ class AllInGroup : AppCompatActivity() {
                 Log.e("urvashi", "$t your response is fail")
             }
         })
+=======
+
+                            list.add(
+                                AllGroupDetailsData(
+                                    agentId,
+                                    token,
+                                    groupId,
+                                    loanAmount,
+                                    interest,
+                                    teamLeadName,
+                                    groupLeaderName,
+                                    collectionType,
+                                    groupName,
+                                    totalGroupMember,
+                                    groupLeaderMobile,
+                                    disburseDate
+                                )
+                            )
+                        }
+                        binding?.allEmiRv?.layoutManager =
+                            LinearLayoutManager(this@AllInGroup)
+                        recyclerView = AllGroupRv(list)
+                        binding?.allEmiRv?.adapter = recyclerView
+                        recyclerView!!.notifyDataSetChanged()
+                    }else{
+                        binding?.allEmiRv?.isVisible = false
+                        binding?.messageTxt?.isVisible = true
+                        binding?.messageTxt?.text = "No EMI's"
+                        binding?.allEmiRv?.isVisible = false
+                        binding?.sorryImg?.isVisible = true
+                    }
+
+
+
+
+                }else{
+                    Log.e("urvashi", "fail")
+                }
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+//                Toast.makeText(this@MonthlyInGroup, t.toString(), Toast.LENGTH_LONG).show()
+                Log.e("urvashi", "$t your response is fail")
+            }
+
+        })
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     }
 
 

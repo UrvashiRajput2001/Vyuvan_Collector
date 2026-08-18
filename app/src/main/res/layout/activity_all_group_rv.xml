@@ -3,8 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="wrap_content"
     android:paddingBottom="10dp"
+=======
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     tools:context=".GroupLoan.AdapterInGroup.AllGroupRv">
 
     <androidx.cardview.widget.CardView

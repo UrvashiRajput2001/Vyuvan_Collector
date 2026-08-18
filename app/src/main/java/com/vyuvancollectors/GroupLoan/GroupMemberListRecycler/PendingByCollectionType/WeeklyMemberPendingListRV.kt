@@ -37,6 +37,10 @@ class WeeklyMemberPendingListRV(private val list :List<WeeklyMemberPendingData>)
         val context = holder.itemView.context
 
         val typeAgent = "Agent"
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val lastdateCollected: String = sdf.format(Date())
@@ -52,11 +56,19 @@ class WeeklyMemberPendingListRV(private val list :List<WeeklyMemberPendingData>)
         val groupName = list[position].groupName
         val groupId = list[position].groupId
         val phone = list[position].phone
+<<<<<<< HEAD
+=======
+        val emiNo = list[position].emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.emiTxt.text = "EMI : $emiAmount"
         holder.binding.collectionTypeTxt.text = "Type : $collectionType"
         holder.binding.mobileTxt.text = "Mobile : $phone"
+<<<<<<< HEAD
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
 
@@ -68,6 +80,10 @@ class WeeklyMemberPendingListRV(private val list :List<WeeklyMemberPendingData>)
 
             val context1 = holder.itemView.context
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             val dialog = AlertDialog.Builder(context1)
             var bind : ActivityCashBoxBinding? = null
             bind = ActivityCashBoxBinding.inflate(LayoutInflater.from(context1))
@@ -139,6 +155,11 @@ class WeeklyMemberPendingListRV(private val list :List<WeeklyMemberPendingData>)
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val json = JsonObject()
                 json.addProperty("emiId","$emiId")

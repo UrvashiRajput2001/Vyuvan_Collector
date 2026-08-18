@@ -11,6 +11,10 @@ import androidx.core.view.isVisible
 import com.vyuvancollectors.Retrofit.ApiClient
 import com.vyuvancollectors.Retrofit.ApiInterface
 import com.google.gson.JsonObject
+<<<<<<< HEAD
+=======
+import com.vyuvancollectors.PersonalLoan.OtherActivity.PersonalPaidEMIListActivity
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import com.vyuvancollectors.PersonalLoan.PersonalLoanSearch.PersonalLoanPhoneSearch
 import com.vyuvancollectors.PersonalLoan.TypesOfEMI.Monthly
 import com.vyuvancollectors.databinding.ActivityPersonalemistatusBinding
@@ -35,9 +39,13 @@ class PersonalEmiStatus : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
 
         binding = ActivityPersonalemistatusBinding.inflate(layoutInflater)
 
+=======
+        binding = ActivityPersonalemistatusBinding.inflate(layoutInflater)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         setContentView(binding?.root)
 
         agentPendingTodayAmount()
@@ -60,6 +68,11 @@ class PersonalEmiStatus : AppCompatActivity() {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         agentCollectedAmountApi()
 
         agentOverDueAmountAPI()
@@ -87,7 +100,11 @@ class PersonalEmiStatus : AppCompatActivity() {
         binding?.pendingBtn?.setOnClickListener {
             typo = "0"
             tag = "Pending EMI's"
+<<<<<<< HEAD
             val intent = Intent(this, Monthly::class.java)
+=======
+            val intent = Intent(this, PersonalCollectionTypes::class.java)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             intent.putExtra("typo", typo)
             intent.putExtra("tag", tag)
             intent.putExtra("token","$token")
@@ -98,6 +115,7 @@ class PersonalEmiStatus : AppCompatActivity() {
         binding?.paidBtn?.setOnClickListener {
             typo = "1"
             tag = "Paid EMI's"
+<<<<<<< HEAD
             val intent = Intent(this, Monthly::class.java)
             intent.putExtra("token","$token")
             intent.putExtra("tag", tag)
@@ -110,6 +128,9 @@ class PersonalEmiStatus : AppCompatActivity() {
             typo = "2"
             tag = "OverDue EMI's"
             val intent = Intent(this, Monthly::class.java)
+=======
+            val intent = Intent(this, PersonalCollectionTypes::class.java)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             intent.putExtra("token","$token")
             intent.putExtra("tag", tag)
             intent.putExtra("agentId","$agentId")
@@ -118,6 +139,7 @@ class PersonalEmiStatus : AppCompatActivity() {
         }
 
         binding?.collectedAmountBtn?.setOnClickListener {
+<<<<<<< HEAD
             typo = "1"
             tag = "Paid EMI's"
             val intent = Intent(this, Monthly::class.java)
@@ -128,11 +150,52 @@ class PersonalEmiStatus : AppCompatActivity() {
             startActivity(intent)
         }
 
+=======
+            val intent = Intent(this, PersonalPaidEMIListActivity::class.java)
+            intent.putExtra("token","$token")
+            intent.putExtra("agentId","$agentId")
+            startActivity(intent)
+        }
+
+        binding?.overdueAmountBtn?.setOnClickListener {
+            val intent = Intent(this, PersonalPaidEMIListActivity::class.java)
+            intent.putExtra("token","$token")
+            intent.putExtra("agentId","$agentId")
+            startActivity(intent)
+        }
+
+//        binding?.overdueAmountBtn?.setOnClickListener {
+//            typo = "2"
+//            tag = "OverDue EMI's"
+//            val intent = Intent(this, PersonalCollectionTypes::class.java)
+//            intent.putExtra("token","$token")
+//            intent.putExtra("tag", tag)
+//            intent.putExtra("agentId","$agentId")
+//            intent.putExtra("typo", typo)
+//            startActivity(intent)
+//        }
+//
+//        binding?.collectedAmountBtn?.setOnClickListener {
+//            typo = "1"
+//            tag = "Paid EMI's"
+//            val intent = Intent(this, PersonalCollectionTypes::class.java)
+//            intent.putExtra("token","$token")
+//            intent.putExtra("tag", tag)
+//            intent.putExtra("agentId","$agentId")
+//            intent.putExtra("typo", typo)
+//            startActivity(intent)
+//        }
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.overdueBtn?.setOnClickListener {
             typo = "2"
             tag = "OverDue EMI's"
+<<<<<<< HEAD
             val intent = Intent(this, Monthly::class.java)
+=======
+            val intent = Intent(this, PersonalCollectionTypes::class.java)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             intent.putExtra("token","$token")
             intent.putExtra("tag", tag)
             intent.putExtra("agentId","$agentId")
@@ -144,7 +207,11 @@ class PersonalEmiStatus : AppCompatActivity() {
         binding?.allBtn?.setOnClickListener {
             typo = "3"
             tag = "All EMI's"
+<<<<<<< HEAD
             val intent = Intent(this, Monthly::class.java)
+=======
+            val intent = Intent(this, PersonalCollectionTypes::class.java)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             intent.putExtra("token","$token")
             intent.putExtra("tag", tag)
             intent.putExtra("agentId","$agentId")

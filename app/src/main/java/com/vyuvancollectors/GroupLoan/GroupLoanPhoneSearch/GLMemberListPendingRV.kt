@@ -35,6 +35,10 @@ class GLMemberListPendingRV(private val list :List<AllMemberPendingData>) : Recy
 
     override fun onBindViewHolder(holder: GLMemberListPendingRV.MyViewHolder, position: Int) {
         val context = holder.itemView.context
+<<<<<<< HEAD
+=======
+        holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
         val sdf = SimpleDateFormat("dd-MM-yyyy")
@@ -75,6 +79,10 @@ class GLMemberListPendingRV(private val list :List<AllMemberPendingData>) : Recy
 
             val context1 = holder.itemView.context
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             val dialog = AlertDialog.Builder(context1)
             var bind : ActivityCashBoxBinding? = null
             bind = ActivityCashBoxBinding.inflate(LayoutInflater.from(context1))
@@ -145,6 +153,11 @@ class GLMemberListPendingRV(private val list :List<AllMemberPendingData>) : Recy
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val typeagent = "Agent"
                 val json = JsonObject()
@@ -218,6 +231,11 @@ class GLMemberListPendingRV(private val list :List<AllMemberPendingData>) : Recy
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.progressBarOnline.isVisible = true
                 bind.onlineMessageOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
                 val typeAgent = "Agent"
 
@@ -301,6 +319,11 @@ class GLMemberListPendingRV(private val list :List<AllMemberPendingData>) : Recy
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
                 val typeAgent = "Agent"
 

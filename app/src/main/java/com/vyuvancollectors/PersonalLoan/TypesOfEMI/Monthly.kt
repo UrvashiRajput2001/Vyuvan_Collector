@@ -138,6 +138,11 @@ class  Monthly : AppCompatActivity() {
 
                                 val jsonObject2 = JSONTokener(customerDetail.toString()).nextValue() as JSONObject
                                 val name = jsonObject2.getString("name")
+<<<<<<< HEAD
+=======
+
+                                Log.e("Name LILI","$name")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val phone = jsonObject2.getString("phone")
 
                                 list.add(
@@ -233,8 +238,17 @@ class  Monthly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                             val res = response.body()
 
+=======
+                            binding?.messageTxt?.isVisible = false
+                            binding?.sorryImg?.isVisible = false
+                            val res = response.body()
+
+                            Log.e("Kakuda","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")
@@ -352,6 +366,11 @@ class  Monthly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             binding?.ll21?.isVisible = true
+<<<<<<< HEAD
+=======
+                            binding?.messageTxt?.isVisible = false
+                            binding?.sorryImg?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val res = response.body()
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
@@ -443,8 +462,12 @@ class  Monthly : AppCompatActivity() {
                     DatePickerDialog(this, listener, startYear, startMonth, startDate).show()
                 }
 
+<<<<<<< HEAD
                 listener2 =
                     DatePickerDialog.OnDateSetListener { view: DatePicker, Year: Int, month: Int, date: Int ->
+=======
+                listener2 = DatePickerDialog.OnDateSetListener { _: DatePicker, Year: Int, month: Int, date: Int ->
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         stopDate = date
                         stopMonth = month
                         stopYear = Year
@@ -477,6 +500,11 @@ class  Monthly : AppCompatActivity() {
                                     binding?.progressBar?.isVisible = false
                                     binding?.txtBar?.isVisible = false
                                     binding?.ll21?.isVisible = true
+<<<<<<< HEAD
+=======
+                                    binding?.messageTxt?.isVisible = false
+                                    binding?.sorryImg?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                     val res = response.body()
 
                                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
@@ -594,14 +622,25 @@ class  Monthly : AppCompatActivity() {
                     "v1/emi/getOverDueEmi/agentId/loanType/collectionType",jsonObjectInBody
                 )
                 call?.enqueue(object : Callback<JsonObject> {
+<<<<<<< HEAD
+=======
+                    @SuppressLint("NotifyDataSetChanged")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         if (response.isSuccessful) {
                             val list = ArrayList<ModalMonthly>()
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                             val res = response.body()
 
+=======
+                            binding?.messageTxt?.isVisible = false
+                            binding?.sorryImg?.isVisible = false
+                            val res = response.body()
+                            Log.e("LILI OverDue","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject.get("status")
                             val message = jsonObject.get("message")
@@ -630,11 +669,20 @@ class  Monthly : AppCompatActivity() {
                                         val customerId = jsonObject2.getJSONObject(j).getString("customerId")
                                         val collectionType = jsonObject2.getJSONObject(j).getString("collectionType")
 
+<<<<<<< HEAD
                                         val customerDetail = jsonArrayMain.getJSONObject(j).getString("customerDetails")
+=======
+                                        val customerDetail = jsonArrayMain.getJSONObject(i).getString("customerDetails")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                         val jsonObject3 = JSONTokener(customerDetail.toString()).nextValue() as JSONArray
 
                                         for (k in 0 until jsonObject3.length()) {
                                             val name = jsonObject3.getJSONObject(k).getString("name")
+<<<<<<< HEAD
+=======
+
+                                            Log.e("LLii", name)
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                             val phone = jsonObject3.getJSONObject(k).getString("phone")
 
                                             list.add(
@@ -660,8 +708,11 @@ class  Monthly : AppCompatActivity() {
                                     }
                                 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 }
                                 binding?.monthlyEmiRv?.layoutManager =
                                     LinearLayoutManager(this@Monthly)
@@ -700,6 +751,11 @@ class  Monthly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             binding?.ll21?.isVisible = true
+<<<<<<< HEAD
+=======
+                            binding?.messageTxt?.isVisible = false
+                            binding?.sorryImg?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val res = response.body()
 
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
@@ -707,7 +763,11 @@ class  Monthly : AppCompatActivity() {
                             val message = jsonObject1.get("message")
                             val items = jsonObject1.get("items")
 
+<<<<<<< HEAD
                             Log.e("paid response","$res re")
+=======
+                            Log.e("LILI Paid","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
                             if(jsonArray.isNull(0)){
@@ -799,8 +859,15 @@ class  Monthly : AppCompatActivity() {
                             binding?.progressBar?.isVisible = false
                             binding?.txtBar?.isVisible = false
                             binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                             val res = response.body()
 
+=======
+                            binding?.messageTxt?.isVisible = false
+                            binding?.sorryImg?.isVisible = false
+                            val res = response.body()
+                            Log.e("LILI Pending","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject1 = JSONTokener(res.toString()).nextValue() as JSONObject
                             val status = jsonObject1.get("status")
                             val message = jsonObject1.get("message")
@@ -906,7 +973,14 @@ class  Monthly : AppCompatActivity() {
                                 binding?.progressBar?.isVisible = false
                                 binding?.txtBar?.isVisible = false
                                 binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                                 val res = response.body()
+=======
+                                binding?.messageTxt?.isVisible = false
+                                binding?.sorryImg?.isVisible = false
+                                val res = response.body()
+                                Log.e("monthly","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                                 val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                                 val status = jsonObject.get("status")
@@ -997,8 +1071,17 @@ class  Monthly : AppCompatActivity() {
                                 binding?.progressBar?.isVisible = false
                                 binding?.txtBar?.isVisible = false
                                 binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                                 val res = response.body()
 
+=======
+                                binding?.messageTxt?.isVisible = false
+                                binding?.sorryImg?.isVisible = false
+                                val res = response.body()
+
+                                Log.e("monthly","$res")
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                                 val status = jsonObject.get("status")
                                 val message = jsonObject.get("message")
@@ -1089,7 +1172,14 @@ class  Monthly : AppCompatActivity() {
                                 binding?.progressBar?.isVisible = false
                                 binding?.txtBar?.isVisible = false
                                 binding?.ll21?.isVisible = true
+<<<<<<< HEAD
                                 val res = response.body()
+=======
+                                binding?.messageTxt?.isVisible = false
+                                binding?.sorryImg?.isVisible = false
+                                val res = response.body()
+                                Log.e("monthly","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                                 val status = jsonObject.get("status")
                                 val message = jsonObject.get("message")

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
@@ -14,4 +15,22 @@
                 android:topRightRadius="20dp"/>
         </shape>
     </item>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle = "90"
+                android:startColor="#FF7A00"
+                android:type="linear"
+                android:endColor="#FFCB45"/>
+            <corners
+                android:topLeftRadius="20dp"
+                android:bottomLeftRadius="20dp"
+                android:bottomRightRadius="20dp"
+                android:topRightRadius="20dp"/>
+        </shape>
+    </item>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </selector>

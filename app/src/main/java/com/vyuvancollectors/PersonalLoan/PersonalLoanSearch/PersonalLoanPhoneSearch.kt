@@ -44,6 +44,10 @@ class PersonalLoanPhoneSearch : AppCompatActivity() {
         binding?.progressBar?.isVisible = false
         binding?.txtBar?.isVisible = false
         binding?.messageTxt?.isVisible = false
+<<<<<<< HEAD
+=======
+        binding?.sorryImg?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.searchEt?.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -62,6 +66,13 @@ class PersonalLoanPhoneSearch : AppCompatActivity() {
             true
         }
 
+<<<<<<< HEAD
+=======
+        binding?.backBtn?.setOnClickListener {
+            onBackPressed()
+        }
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     }
 
 
@@ -88,6 +99,11 @@ class PersonalLoanPhoneSearch : AppCompatActivity() {
                     val list = ArrayList<Data>()
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.messageTxt?.isVisible = false
+                    binding?.sorryImg?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                 val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                 val status = jsonObject.get("status")

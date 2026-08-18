@@ -19,6 +19,11 @@ import com.google.gson.JsonObject
 import com.vyuvancollectors.GroupLoan.GroupMemberList.MonthlyMemberList
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
+<<<<<<< HEAD
+=======
+import org.json.JSONObject
+import org.json.JSONTokener
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +41,10 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
 
     override fun onBindViewHolder(holder: MonthlyMemberOverDueListRV.MyViewHolder, position: Int) {
         val context = holder.itemView.context
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val typeAgent = "Agent"
 
@@ -55,6 +64,11 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
         val date = list[position].dateOfCollect
         val phone = list[position].phone
         val paidEMIAmount = list[position].paidEmiAmount
+<<<<<<< HEAD
+=======
+        val emiNo = list[position].emiNo
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.memberNameTxt.text = list[position].name
         holder.binding.mobileTxt.text = "Mobile : $phone"
@@ -62,7 +76,11 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
         holder.binding.collectionTypeTxt.text = "Type : $collectionType"
         holder.binding.paidEmiTxt.text = "PaidEmiAmount : $paidEMIAmount"
         holder.binding.dateTxt.text = "Date : $date"
+<<<<<<< HEAD
 
+=======
+        holder.binding.emiNumTxt.text = "EMI No. : $emiNo"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         holder.binding.mobileTxt.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
@@ -79,6 +97,10 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
 
         holder.binding.collectEmiBtn.setOnClickListener {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             val context1 = holder.itemView.context
 
             val dialog = AlertDialog.Builder(context1)
@@ -150,6 +172,11 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val json = JsonObject()
                 json.addProperty("emiId","$emiId")
@@ -170,6 +197,7 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
 
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, MonthlyMemberList::class.java)
@@ -181,6 +209,27 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                         context.startActivity(intent)
                         bind.progressBarCash.isVisible = false
                         (context as Activity).finish()
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+
+                        if (status == true){
+                            Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                            val intent = Intent(context1, MonthlyMemberList::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId", "$agentId")
+                            intent.putExtra("totalGroupMember", "$totalGroupMember")
+                            intent.putExtra("groupName", "$groupName")
+                            intent.putExtra("groupId", "$groupId")
+                            context.startActivity(intent)
+                            bind.progressBarCash.isVisible = false
+                            (context as Activity).finish()
+                        }else{
+                            Toast.makeText(context, "Emi is not Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                         Log.e("urvashi", "$t your response is fail")
@@ -226,6 +275,11 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.progressBarOnline.isVisible = true
                 bind.onlineMessageOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
 
                 val json = JsonObject()
@@ -247,6 +301,7 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, MonthlyMemberList::class.java)
                         intent.putExtra("token","$token")
@@ -257,6 +312,25 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                         context.startActivity(intent)
                         bind.progressBarOnline.isVisible = false
                         (context as Activity).finish()
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+                        if (status == true){
+                            Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                            val intent = Intent(context1, MonthlyMemberList::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId", "$agentId")
+                            intent.putExtra("totalGroupMember", "$totalGroupMember")
+                            intent.putExtra("groupName", "$groupName")
+                            intent.putExtra("groupId", "$groupId")
+                            context.startActivity(intent)
+                            bind.progressBarOnline.isVisible = false
+                            (context as Activity).finish()
+                        }else{
+                            Toast.makeText(context, "Emi is not  Collect Successfully", Toast.LENGTH_LONG)
+                        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                         Log.e("urvashi", "$t your response is fail")
@@ -316,6 +390,11 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
 
                 val json = JsonObject()
@@ -338,6 +417,7 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                 call?.enqueue(object  : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                         val res = response.body()
+<<<<<<< HEAD
                         Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG).show()
                         val intent = Intent(context1, MonthlyMemberList::class.java)
                         intent.putExtra("token","$token")
@@ -348,6 +428,25 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                         context.startActivity(intent)
                         bind.progressBarBarcode.isVisible = false
                         (context as Activity).finish()
+=======
+                        val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
+                        val status = jsonObjectMain.get("status")
+                        if (status == true){
+                            Toast.makeText(context, "Emi Collect Successfully", Toast.LENGTH_LONG)
+                                .show()
+                            val intent = Intent(context1, MonthlyMemberList::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId", "$agentId")
+                            intent.putExtra("totalGroupMember", "$totalGroupMember")
+                            intent.putExtra("groupName", "$groupName")
+                            intent.putExtra("groupId", "$groupId")
+                            context.startActivity(intent)
+                            bind.progressBarBarcode.isVisible = false
+                            (context as Activity).finish()
+                        }else{
+                            Toast.makeText(context, "Emi is not Collect Successfully", Toast.LENGTH_LONG)
+                        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                         Log.e("urvashi", "$t your response is fail")
@@ -356,6 +455,10 @@ class MonthlyMemberOverDueListRV(private val list :List<MonthlyMemberOverDueData
                 alert.hide()
             }
             alert.show()
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         }
 
     }

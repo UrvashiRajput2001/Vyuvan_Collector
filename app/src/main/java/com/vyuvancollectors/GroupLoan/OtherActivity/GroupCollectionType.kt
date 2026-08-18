@@ -36,11 +36,21 @@ class GroupCollectionType : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
 
         binding = ActivityGroupCollectionTypeBinding.inflate(layoutInflater)
 
         setContentView(binding?.root)
 
+=======
+        binding = ActivityGroupCollectionTypeBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
+
+        agentCollectedAmountApi()
+        agentPendingTodayAmount()
+        agentOverDueAmountAPI()
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.searchBtn?.isVisible = false
 
         binding?.menuImg?.setOnClickListener {
@@ -53,6 +63,7 @@ class GroupCollectionType : AppCompatActivity() {
 
 
         val bundle = intent.extras
+<<<<<<< HEAD
 
         @Suppress("DEPRECATION")
         val tag = bundle?.get("tag") as String?
@@ -63,6 +74,14 @@ class GroupCollectionType : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val agentId = bundle?.get("agentId") as String?
 
+=======
+        @Suppress("DEPRECATION")
+        val tag = bundle?.get("tag") as String?
+        @Suppress("DEPRECATION")
+        val typo = bundle?.get("typo") as String?
+        @Suppress("DEPRECATION")
+        val agentId = bundle?.get("agentId") as String?
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         @Suppress("DEPRECATION")
         val token = bundle?.get("token") as String?
 
@@ -95,9 +114,13 @@ class GroupCollectionType : AppCompatActivity() {
 
         Log.e("urvashi tag", "$tag $typo tag")
 
+<<<<<<< HEAD
         agentCollectedAmountApi()
         agentPendingTodayAmount()
         agentOverDueAmountAPI()
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.backBtn?.setOnClickListener {
             onBackPressed()
@@ -107,9 +130,15 @@ class GroupCollectionType : AppCompatActivity() {
             monthly()
         }
 
+<<<<<<< HEAD
 //        binding?.weeklyBtn?.setOnClickListener {
 //            weekly()
 //        }
+=======
+        binding?.weeklyBtn?.setOnClickListener {
+            weekly()
+        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.allBtn?.setOnClickListener {
             all()

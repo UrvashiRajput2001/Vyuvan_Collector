@@ -102,6 +102,10 @@ class WeeklyInGroup : AppCompatActivity() {
             token,typeAgent,
             "v1/groupDetails/$agentId/$weekly"
         )
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         Log.e("urvashi", "$token  token")
         call?.enqueue(object : Callback<JsonObject> {
             @SuppressLint("NotifyDataSetChanged")

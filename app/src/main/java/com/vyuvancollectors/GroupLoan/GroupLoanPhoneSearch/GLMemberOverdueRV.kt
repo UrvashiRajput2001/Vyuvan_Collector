@@ -40,6 +40,11 @@ class GLMemberOverdueRV(private val list :List<AllMemberOverDueData>) : Recycler
     override fun onBindViewHolder(holder: GLMemberOverdueRV.MyViewHolder, position: Int) {
         val context = holder.itemView.context
 
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val lastdateCollected = sdf.format(Date())
 
@@ -151,6 +156,11 @@ class GLMemberOverdueRV(private val list :List<AllMemberOverDueData>) : Recycler
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val typeAgent = "Agent"
                 val json = JsonObject()
@@ -227,6 +237,11 @@ class GLMemberOverdueRV(private val list :List<AllMemberOverDueData>) : Recycler
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.onlineMessageOkBtn.isVisible = false
                 bind.progressBarOnline.isVisible = true
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
                 val typeAgent = "Agent"
 
@@ -317,6 +332,11 @@ class GLMemberOverdueRV(private val list :List<AllMemberOverDueData>) : Recycler
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.collectEmiBtn.isVisible = false
+                holder.binding.progressBar.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
                 val typeAgent = "Agent"
 

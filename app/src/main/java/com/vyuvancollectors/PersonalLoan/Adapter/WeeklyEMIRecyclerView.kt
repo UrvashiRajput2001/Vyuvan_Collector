@@ -41,6 +41,11 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
      override fun onBindViewHolder(holder: WeeklyEMIRecyclerView.MyViewHolder, position: Int) {
         val context = holder.itemView.context
 
+<<<<<<< HEAD
+=======
+        holder.binding.progressBar.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val typeAgent = "Agent"
 
         val name = list[position].name
@@ -75,6 +80,10 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
                 ?.let { holder.binding.collectEmiBtn.background = it }
             Log.e("Monthly Emi","$emiStatus loop wala emi status")
         }else{
+<<<<<<< HEAD
+=======
+            holder.binding.collectEmiBtn.isEnabled = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             holder.binding.collectEmiBtn.text = "Collect"
             ContextCompat.getDrawable(context, R.drawable.ellipse)
                 ?.let { holder.binding.collectEmiBtn.background = it }
@@ -173,6 +182,11 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
             bind.cashMsgOkBtn.setOnClickListener {
                 bind.progressBarCash.isVisible = true
                 bind.cashMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "CASH"
                 val json = JsonObject()
                 json.addProperty("emiId","$emiId")
@@ -245,6 +259,10 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
                 bind.barcodeBoxLayout.isVisible = false
                 bind.onlineMsgBoxLayout.isVisible = true
                 bind.onlineLayout.isVisible = false
+<<<<<<< HEAD
+=======
+                bind.progressBarOnline.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
             }
 
@@ -255,6 +273,11 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
             bind.onlineMessageOkBtn.setOnClickListener {
                 bind.progressBarOnline.isVisible = true
                 bind.onlineMessageOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "ONLINE"
 
                 val json = JsonObject()
@@ -347,6 +370,11 @@ class WeeklyEMIRecyclerView(private val list :List<ModalWeekly>) : RecyclerView.
             bind.barcodeMsgOkBtn.setOnClickListener {
                 bind.progressBarBarcode.isVisible = true
                 bind.barcodeMsgOkBtn.isVisible = false
+<<<<<<< HEAD
+=======
+                holder.binding.progressBar.isVisible = true
+                holder.binding.collectEmiBtn.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                 val paymentMethod = "BARCODE"
 
                 val json = JsonObject()

@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+<<<<<<< HEAD
     android:fitsSystemWindows="true"
+=======
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     tools:context=".PersonalLoan.TypesOfEMI.Monthly">
 
     <LinearLayout
@@ -61,6 +64,10 @@
             android:hint="Search..."
             android:imeOptions="actionSearch"
             android:inputType="number"
+<<<<<<< HEAD
+=======
+            android:maxLength="10"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             android:padding="5dp"
             android:textColor="@color/black"
             android:textColorHint="@color/hint_color"
@@ -109,6 +116,7 @@
 
         </LinearLayout>
 
+<<<<<<< HEAD
 
         <LinearLayout
             android:id="@+id/ll_21"
@@ -131,6 +139,8 @@
 
         </LinearLayout>
 
+=======
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="50dp"
@@ -155,6 +165,10 @@
             android:id="@+id/sorry_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
+<<<<<<< HEAD
+=======
+            android:layout_marginTop="30dp"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             android:layout_gravity="center"
             android:src="@drawable/sorry_img" />
 
@@ -172,6 +186,37 @@
 
 
 
+<<<<<<< HEAD
+=======
+        <LinearLayout
+            android:id="@+id/ll_21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/monthly_emi_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     </LinearLayout>
 
 </RelativeLayout>

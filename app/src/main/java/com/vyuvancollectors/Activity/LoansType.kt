@@ -1,5 +1,6 @@
 package com.vyuvancollectors.Activity
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -12,6 +13,41 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.JsonObject
 import com.vyuvancollectors.GroupLoan.OtherActivity.GroupCollectionType
 import com.vyuvancollectors.PersonalLoan.StartActivitys.PersonalEmiStatus
+=======
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.location.Location
+import android.location.LocationManager
+import android.net.ConnectivityManager
+import android.os.Build
+import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
+import android.view.Gravity
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.gson.JsonObject
+import com.vyuvancollectors.GroupLoan.OtherActivity.GroupCollectionType
+import com.vyuvancollectors.PersonalLoan.StartActivitys.PersonalCollectionTypes
+import com.vyuvancollectors.PersonalLoan.StartActivitys.PersonalEmiStatus
+import com.vyuvancollectors.R
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import com.vyuvancollectors.RecentLoan.RecentLoanData
 import com.vyuvancollectors.RecentLoan.RecentLoanRV
 import com.vyuvancollectors.Retrofit.ApiClient
@@ -27,13 +63,30 @@ import org.json.JSONTokener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+<<<<<<< HEAD
+=======
+import java.math.RoundingMode
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
 class LoansType : AppCompatActivity() {
 
     private var binding : ActivityLoansTypeBinding? = null
+<<<<<<< HEAD
 
     @SuppressLint("LongLogTag")
+=======
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    @SuppressLint("LongLogTag", "NewApi")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityLoansTypeBinding.inflate(layoutInflater)
@@ -41,8 +94,50 @@ class LoansType : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding?.root)
+<<<<<<< HEAD
 
         recentLoan()
+=======
+        // Initialize FusedLocationProviderClient
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        // Initialize the permission launcher
+        requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                getCurrentLocation()
+            } else {
+                Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Check if the location permission is already granted
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            getCurrentLocation()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
+        // Check if location services are enabled
+        if (isLocationEnabled(this)) {
+//            getCurrentLocation()
+//            Toast.makeText(this, "Location services are enabled", Toast.LENGTH_SHORT).show()
+        } else {
+            showSettingsAlert()
+
+//            Toast.makeText(this, "Location services are disabled", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
+        recentLoan()
+        agentCollectedAmountApi()
+
+
+        val sdf = SimpleDateFormat("dd.MM.yyyy/EEEE")
+        val date : String = sdf.format(Date())
+        binding?.dateTxt?.text = "Date : $date"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val bundle = intent.extras
         @Suppress("DEPRECATION")
@@ -50,6 +145,14 @@ class LoansType : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val agentId = bundle?.get("agentId") as String?
 
+<<<<<<< HEAD
+=======
+        val sharedPreference = getSharedPreferences("VYuvan_Collector", MODE_PRIVATE)
+        val agentName =  sharedPreference.getString("agentName","")
+
+        binding?.agentNameTxt?.text = "$agentName"
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         Log.e("Token In LoanType Screen","$token Token $agentId agentId")
 
         binding?.logoutBtn?.isVisible = false
@@ -98,6 +201,10 @@ class LoansType : AppCompatActivity() {
             intent.putExtra("agentId","$agentId")
             startActivity(intent)
             binding?.logoutBtn?.isVisible = false
+<<<<<<< HEAD
+=======
+            binding?.savingsAccountBtn?.isVisible= false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 //            binding?.customListBtn?.isVisible = false
         }
 
@@ -107,6 +214,10 @@ class LoansType : AppCompatActivity() {
             intent.putExtra("agentId","$agentId")
             startActivity(intent)
             binding?.logoutBtn?.isVisible = false
+<<<<<<< HEAD
+=======
+            binding?.savingsAccountBtn?.isVisible= false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 //            binding?.customListBtn?.isVisible = false
 
         }
@@ -122,9 +233,25 @@ class LoansType : AppCompatActivity() {
 
     }
 
+<<<<<<< HEAD
     override fun onResume() {
         super.onResume()
         recentLoan()
+=======
+    @SuppressLint("NewApi")
+    override fun onResume() {
+        super.onResume()
+        recentLoan()
+        agentCollectedAmountApi()
+
+//        getCurrentLocation()
+
+
+        binding?.logoutBtn?.isVisible = false
+//        binding?.customListBtn?.isVisible = false
+        binding?.messageTxt?.isVisible = false
+        binding?.savingsAccountBtn?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     }
 
     private fun recentLoan(){
@@ -237,6 +364,10 @@ class LoansType : AppCompatActivity() {
                     val editor = sharedPreferences.edit()
                     editor.putString("token","")
                     editor.putString("agentId","")
+<<<<<<< HEAD
+=======
+                    editor.putString("agentName","")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     editor.apply()
                     finish()
                 }
@@ -247,6 +378,57 @@ class LoansType : AppCompatActivity() {
         })
     }
 
+<<<<<<< HEAD
+=======
+
+    private fun agentCollectedAmountApi(){
+        val bundle = intent.extras
+        @Suppress("DEPRECATION")
+        val token = bundle?.get("token") as String?
+        @Suppress("DEPRECATION")
+        val agentId = bundle?.get("agentId") as String?
+
+        val typeAgent = "Agent"
+
+
+
+        val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+        val call = apiClient?.getTwoHeadersWithTokenData(token.toString(),typeAgent,"v1/emisData/toBePaidEmi/$agentId")
+        call?.enqueue(object  : Callback<JsonObject> {
+
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                if (response.isSuccessful) {
+                    val res = response.body()
+
+                    Log.e("Ja re","$res")
+
+                    val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
+                    val totalAmountPL = jsonObject.getDouble("totalAmountPL")
+                    val totalAmountGL = jsonObject.getDouble("totalAmountGL")
+                    val total = totalAmountPL + totalAmountGL
+
+
+                        binding?.todayDueAmountTxt?.text = "₹$total"
+
+
+
+
+                }
+            }
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                Log.e("urvashi", "$t your response is fail")
+            }
+        })
+
+    }
+
+    fun roundOffDecimal(number: Double): Double? {
+        val df = DecimalFormat("#.##")
+        df.roundingMode = RoundingMode.CEILING
+        return df.format(number).toDouble()
+    }
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     private fun forLoginPage(){
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -266,4 +448,94 @@ class LoansType : AppCompatActivity() {
         return connected
     }
 
+<<<<<<< HEAD
+=======
+//    fun canGetLocation(): Boolean {
+//        return isLocationEnabled(this) // application context
+//    }
+//
+//    fun isLocationEnabled(context: Context): Boolean {
+//        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            try {
+////                showSettingsAlert()
+//                val locationMode = Settings.Secure.getInt(context.contentResolver, Settings.Secure.LOCATION_MODE)
+//                locationMode != Settings.Secure.LOCATION_MODE_OFF
+//
+//            } catch (e: Settings.SettingNotFoundException) {
+//                e.printStackTrace()
+//                false
+//            }
+//        } else {
+//            val locationProviders = Settings.Secure.getString(context.contentResolver, Settings.Secure.LOCATION_MODE)
+//            !locationProviders.isNullOrEmpty()
+//        }
+//    }
+
+
+    private fun isLocationEnabled(context: Context): Boolean {
+        val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    }
+
+    fun showSettingsAlert() {
+        val builder = AlertDialog.Builder(this)
+        builder.setIcon(R.drawable.logo)
+        builder.setTitle("GPS Settings")
+        builder.setMessage("GPS Location is off. Please go to settings menu and enable your location")
+
+        builder.setPositiveButton("Settings") { dialog, _ ->
+            val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+            startActivity(intent)
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        val alert = builder.create()
+        alert.show()
+
+        val pButton = alert.getButton(DialogInterface.BUTTON_POSITIVE)
+        pButton.setTextColor(Color.GRAY)
+        pButton.gravity = Gravity.CENTER
+
+        val nButton = alert.getButton(DialogInterface.BUTTON_NEGATIVE)
+        nButton.setTextColor(Color.GRAY)
+        nButton.gravity = Gravity.CENTER
+    }
+
+    private fun getCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        fusedLocationClient.lastLocation.addOnSuccessListener(this, OnSuccessListener<Location> { location ->
+            if (location != null) {
+                val latitude = location.latitude
+                val longitude = location.longitude
+                Toast.makeText(this, "Latitude: $latitude, Longitude: $longitude", Toast.LENGTH_LONG).show()
+//                Log.e("chand","Latitude: $latitude, Longitude: $longitude")
+            } else {
+//                Toast.makeText(this, "Location is null", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 }

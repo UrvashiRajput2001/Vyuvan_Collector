@@ -105,6 +105,7 @@ class YearlyPdfConverter(val list: ArrayList<DataForYearlyPdf>, private val emiL
         renderPdf(context, filePath)
     }
 
+<<<<<<< HEAD
     fun createPdf(context: Context, activity: Activity) {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.activity_yearly_pdf_converter, null)
@@ -114,6 +115,17 @@ class YearlyPdfConverter(val list: ArrayList<DataForYearlyPdf>, private val emiL
         val bitmap = createBitmapFromView(context, view, adapter, activity)
         convertBitmapToPdf(bitmap, activity)
     }
+=======
+//    fun createPdf(context: Context, activity: Activity) {
+//        val inflater = LayoutInflater.from(context)
+//        val view = inflater.inflate(R.layout.activity_yearly_pdf_converter, null)
+//
+//        val adapter = PdfYearlyEMIRecyclerView(emiList)
+//        Log.e("Urvashi","${emiList.size}")
+//        val bitmap = createBitmapFromView(context, view, adapter, activity)
+//        convertBitmapToPdf(bitmap, activity)
+//    }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
 
     private fun renderPdf(context: Context, filePath: File) {

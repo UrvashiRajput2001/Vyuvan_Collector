@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:paddingBottom="20dp"
     android:fitsSystemWindows="true"
+<<<<<<< HEAD
     android:background="@drawable/background_2"
+=======
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     tools:context=".GroupLoan.GroupLoanPhoneSearch.GLPhoneSearch">
 
     <TextView

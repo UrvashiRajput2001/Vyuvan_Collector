@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="vyuvan_logo_background">#3DDC84</color>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vyuvan_logo_background">#3DDC84</color>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </resources>

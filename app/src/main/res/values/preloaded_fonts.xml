@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
@@ -5,3 +6,12 @@
         <item>@font/poppins_medium</item>
     </array>
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/poppins</item>
+        <item>@font/poppins_medium</item>
+    </array>
+</resources>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3

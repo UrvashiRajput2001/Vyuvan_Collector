@@ -22,7 +22,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:background="@color/white"
+=======
+            android:background="@drawable/background_2"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             android:orientation="horizontal">
 
             <LinearLayout

@@ -45,9 +45,15 @@ class MonthlyMemberList : AppCompatActivity() {
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
+<<<<<<< HEAD
         binding?.progressBar?.isVisible = false
         binding?.txtBar?.isVisible = false
         binding?.sorryImg?.isVisible = false
+=======
+        binding?.progressBar?.isVisible = true
+        binding?.txtBar?.isVisible = true
+        binding?.sorryImg?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -70,6 +76,14 @@ class MonthlyMemberList : AppCompatActivity() {
 
 
         binding?.pendingBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.pendingRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -81,6 +95,14 @@ class MonthlyMemberList : AppCompatActivity() {
 
 
         binding?.paidBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.paidRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -91,6 +113,14 @@ class MonthlyMemberList : AppCompatActivity() {
         }
 
         binding?.overdueBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.overdueRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -113,7 +143,11 @@ class MonthlyMemberList : AppCompatActivity() {
 
 
     private fun pendingAPI(){
+<<<<<<< HEAD
         binding?.pendingRv?.isVisible = true
+=======
+        binding?.pendingRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
@@ -147,6 +181,10 @@ class MonthlyMemberList : AppCompatActivity() {
 
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.pendingRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val res = response.body()
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.get("status")
@@ -158,11 +196,19 @@ class MonthlyMemberList : AppCompatActivity() {
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
                         binding?.sorryImg?.isVisible = true
+<<<<<<< HEAD
+=======
+                        binding?.pendingRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
                             val id = jsonArray.getJSONObject(i).getString("_id")
                             val emiAmount = jsonArray.getJSONObject(i).getString("emiAmount")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                             val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
                             val customerId = jsonArray.getJSONObject(i).getString("customerId")
@@ -174,7 +220,11 @@ class MonthlyMemberList : AppCompatActivity() {
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
+<<<<<<< HEAD
                             list.add(MonthlyMemberPendingData(id,token,name,phone,collectionType,emiAmount,emistatus,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId))
+=======
+                            list.add(MonthlyMemberPendingData(id,token,name,phone,collectionType,emiAmount,emistatus,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId,emiNo))
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         }
                         binding?.pendingRv?.layoutManager = LinearLayoutManager(this@MonthlyMemberList)
                         recyclerView = MonthlyMemberPendingListRv(list)
@@ -192,7 +242,11 @@ class MonthlyMemberList : AppCompatActivity() {
 
 
     private fun paidAPI(){
+<<<<<<< HEAD
         binding?.paidRv?.isVisible = true
+=======
+        binding?.paidRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.pendingRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
@@ -234,6 +288,10 @@ class MonthlyMemberList : AppCompatActivity() {
 
                      binding?.progressBar?.isVisible = false
                      binding?.txtBar?.isVisible = false
+<<<<<<< HEAD
+=======
+                     binding?.paidRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                      val res = response.body()
                      val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                      val status = jsonObject.get("status")
@@ -245,6 +303,10 @@ class MonthlyMemberList : AppCompatActivity() {
                          binding?.messageTxt?.isVisible = true
                          binding?.sorryImg?.isVisible = true
                          binding?.messageTxt?.text = "No EMI's"
+<<<<<<< HEAD
+=======
+                         binding?.paidRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                      }
                      if (status == true) {
                          for (i in 0 until jsonArray.length()) {
@@ -253,6 +315,10 @@ class MonthlyMemberList : AppCompatActivity() {
                              val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                              val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
                              val lastDateCollect = jsonArray.getJSONObject(i).getString("lastDateCollected")
+<<<<<<< HEAD
+=======
+                             val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                              val customerId = jsonArray.getJSONObject(i).getString("customerId")
                              val loanId = jsonArray.getJSONObject(i).getString("loanId")
                              val status = jsonArray.getJSONObject(i).getString("status")
@@ -272,7 +338,12 @@ class MonthlyMemberList : AppCompatActivity() {
                                          paidEmiAmount.toString(),
                                          status,
                                          dateOfCollect,
+<<<<<<< HEAD
                                          lastDateCollect
+=======
+                                         lastDateCollect,
+                                         emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                      )
                                  )
                              }
@@ -291,9 +362,15 @@ class MonthlyMemberList : AppCompatActivity() {
     }
 
     private fun overDueAPI(){
+<<<<<<< HEAD
         binding?.pendingRv?.isVisible = false
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = true
+=======
+        binding?.overdueRv?.isVisible = false
+        binding?.pendingRv?.isVisible = false
+        binding?.paidRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.messageTxt?.isVisible = false
         binding?.sorryImg?.isVisible = false
         var recyclerView : MonthlyMemberOverDueListRV?
@@ -325,6 +402,10 @@ class MonthlyMemberList : AppCompatActivity() {
 
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.overdueRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val res = response.body()
 
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
@@ -338,6 +419,10 @@ class MonthlyMemberList : AppCompatActivity() {
                         binding?.messageTxt?.isVisible = true
                         binding?.sorryImg?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
+<<<<<<< HEAD
+=======
+                        binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
 
                     if (status == true) {
@@ -352,12 +437,20 @@ class MonthlyMemberList : AppCompatActivity() {
                             val loanId = jsonArray.getJSONObject(i).getString("loanId")
                             val emistatus = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
+<<<<<<< HEAD
                             list.add(MonthlyMemberOverDueData(id,token,name,phone,collectionType,emiAmount,emistatus,agentId,customerId,loanId,dateOfCollect,paidEmiAmount,totalGroupMember,groupName,groupId))
+=======
+                            list.add(MonthlyMemberOverDueData(id,token,name,phone,collectionType,emiAmount,emistatus,agentId,customerId,loanId,dateOfCollect,paidEmiAmount,totalGroupMember,groupName,groupId,emiNo))
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         }
                         binding?.overdueRv?.layoutManager = LinearLayoutManager(this@MonthlyMemberList)
                         recyclerView = MonthlyMemberOverDueListRV(list)

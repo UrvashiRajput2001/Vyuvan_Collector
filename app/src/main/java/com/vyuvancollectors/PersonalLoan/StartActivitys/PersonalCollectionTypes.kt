@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle
+<<<<<<< HEAD
+=======
+import android.util.Log
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.JsonObject
@@ -64,9 +68,15 @@ class PersonalCollectionTypes : AppCompatActivity() {
             weekly()
         }
 
+<<<<<<< HEAD
         binding?.customBtn?.setOnClickListener {
             yearly()
         }
+=======
+//        binding?.customBtn?.setOnClickListener {
+//            yearly()
+//        }
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.tagTxt?.text = "$tag"
 
@@ -154,7 +164,11 @@ class PersonalCollectionTypes : AppCompatActivity() {
         val token = bundle?.get("token") as String?
         @Suppress("DEPRECATION")
         val agentId = bundle?.get("agentId") as String?
+<<<<<<< HEAD
         val loanType = "GL"
+=======
+        val loanType = "PL"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val json = JsonObject()
         json.addProperty("agentId","$agentId")
@@ -170,6 +184,11 @@ class PersonalCollectionTypes : AppCompatActivity() {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 if (response.isSuccessful){
                     val res = response.body()
+<<<<<<< HEAD
+=======
+
+                    Log.e("LILI","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObject.getString("status")
                     val items = jsonObject.getString("items")

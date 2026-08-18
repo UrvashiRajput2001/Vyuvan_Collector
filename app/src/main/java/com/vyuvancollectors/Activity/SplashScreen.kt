@@ -1,11 +1,25 @@
 package com.vyuvancollectors.Activity
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
 import android.content.Intent
+=======
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+<<<<<<< HEAD
+=======
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import com.vyuvancollectors.databinding.ActivitySplashScreenBinding
 
 class SplashScreen : AppCompatActivity() {
@@ -20,6 +34,20 @@ class SplashScreen : AppCompatActivity() {
 
         setContentView(binding?.root)
 
+<<<<<<< HEAD
+=======
+
+
+/*
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // Permission already granted
+        } else {
+            // Request permission
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
+        }
+*/
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val sharedPreference = getSharedPreferences("VYuvan_Collector", MODE_PRIVATE)
         val token =  sharedPreference.getString("token","")
         val agentId = sharedPreference.getString("agentId","")
@@ -44,4 +72,11 @@ class SplashScreen : AppCompatActivity() {
         }
         Log.e("main","$agentId agentId , $token token")
     }
+<<<<<<< HEAD
+=======
+
+/*    override fun onLocationChanged(p0: Location) {
+        TODO("Not yet implemented")
+    }*/
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 }

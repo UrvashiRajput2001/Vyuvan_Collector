@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="logo_icon_background">#C9E3E7</color>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="logo_icon_background">#C9E3E7</color>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 </resources>

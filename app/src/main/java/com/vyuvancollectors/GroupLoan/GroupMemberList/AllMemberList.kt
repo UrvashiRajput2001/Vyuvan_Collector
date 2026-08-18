@@ -45,9 +45,15 @@ class AllMemberList : AppCompatActivity() {
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.messageTxt?.isVisible = false
+<<<<<<< HEAD
         binding?.progressBar?.isVisible = false
         binding?.txtBar?.isVisible = false
         binding?.sorryImg?.isVisible = false
+=======
+        binding?.progressBar?.isVisible = true
+        binding?.txtBar?.isVisible = true
+        binding?.sorryImg?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
@@ -71,6 +77,14 @@ class AllMemberList : AppCompatActivity() {
 
 
         binding?.pendingBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.pendingRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -82,6 +96,14 @@ class AllMemberList : AppCompatActivity() {
 
 
         binding?.paidBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.pendingRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -92,6 +114,14 @@ class AllMemberList : AppCompatActivity() {
         }
 
         binding?.overdueBtn?.setOnClickListener {
+<<<<<<< HEAD
+=======
+            binding?.progressBar?.isVisible = true
+            binding?.txtBar?.isVisible = true
+            binding?.pendingRv?.isVisible = false
+            binding?.paidRv?.isVisible = false
+            binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.overdueBtn?.background = resources.getDrawable(R.drawable.nav_blue_button_bg)
             binding?.paidBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
             binding?.pendingBtn?.background = resources.getDrawable(R.drawable.status_btn_bg_for_gl)
@@ -114,7 +144,11 @@ class AllMemberList : AppCompatActivity() {
     private fun pendingAPI(){
         binding?.messageTxt?.isVisible = false
         binding?.sorryImg?.isVisible = false
+<<<<<<< HEAD
         binding?.pendingRv?.isVisible = true
+=======
+        binding?.pendingRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.paidRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         val pending = "0"
@@ -150,6 +184,10 @@ class AllMemberList : AppCompatActivity() {
                     binding?.txtBar?.isVisible = false
                     binding?.messageTxt?.isVisible = false
                     binding?.sorryImg?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.pendingRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                     val res = response.body()
 
@@ -163,6 +201,10 @@ class AllMemberList : AppCompatActivity() {
                         binding?.messageTxt?.isVisible = true
                         binding?.sorryImg?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
+<<<<<<< HEAD
+=======
+                        binding?.pendingRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
 
                     if (status == true) {
@@ -182,7 +224,11 @@ class AllMemberList : AppCompatActivity() {
 
                             list.add(
                                 AllMemberPendingData(
+<<<<<<< HEAD
                                     id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId
+=======
+                                    id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId,emiAmount
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -202,7 +248,11 @@ class AllMemberList : AppCompatActivity() {
 
     private fun paidAPI(){
         binding?.messageTxt?.isVisible = false
+<<<<<<< HEAD
         binding?.paidRv?.isVisible = true
+=======
+        binding?.paidRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.pendingRv?.isVisible = false
         binding?.overdueRv?.isVisible = false
         binding?.sorryImg?.isVisible = false
@@ -240,6 +290,10 @@ class AllMemberList : AppCompatActivity() {
                     binding?.txtBar?.isVisible = false
                     binding?.messageTxt?.isVisible = false
                     binding?.sorryImg?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.paidRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val res = response.body()
                     Log.e("Paid EMI Response","$res responses")
 
@@ -253,12 +307,20 @@ class AllMemberList : AppCompatActivity() {
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
                         binding?.sorryImg?.isVisible = true
+<<<<<<< HEAD
+=======
+                        binding?.paidRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
                             val paidEmiAmount = jsonArray.getJSONObject(i).getString("paidEmiAmount")
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                             val emiStatus = jsonArray.getJSONObject(i).getString("status")
+<<<<<<< HEAD
+=======
+                            val  emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val lastDateCollected = jsonArray.getJSONObject(i).getString("lastDateCollected")
                             val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
@@ -268,7 +330,11 @@ class AllMemberList : AppCompatActivity() {
 
                             list.add(
                                 AllMemberPaidData(
+<<<<<<< HEAD
                                     agentId,token,name,phone,collectionType,paidEmiAmount,emiStatus,dateOfCollect,lastDateCollected
+=======
+                                    agentId,token,name,phone,collectionType,paidEmiAmount,emiStatus,dateOfCollect,lastDateCollected,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -321,6 +387,10 @@ class AllMemberList : AppCompatActivity() {
                     binding?.txtBar?.isVisible = false
                     binding?.messageTxt?.isVisible = false
                     binding?.sorryImg?.isVisible = false
+<<<<<<< HEAD
+=======
+                    binding?.overdueRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     val res = response.body()
 
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
@@ -333,12 +403,20 @@ class AllMemberList : AppCompatActivity() {
                         binding?.messageTxt?.isVisible = true
                         binding?.messageTxt?.text = "No EMI's"
                         binding?.sorryImg?.isVisible = true
+<<<<<<< HEAD
+=======
+                        binding?.overdueRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
 
                     if (status == true) {
                         for (i in 0 until jsonArray.length()) {
                             val id = jsonArray.getJSONObject(i).getString("_id")
                             val emiAmount = jsonArray.getJSONObject(i).getString("emiAmount")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val paidEmiAmount = jsonArray.getJSONObject(i).getString("paidEmiAmount")
                             val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
                             val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
@@ -351,7 +429,11 @@ class AllMemberList : AppCompatActivity() {
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
+<<<<<<< HEAD
                             list.add(AllMemberOverDueData(id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect, paidEmiAmount,totalGroupMember,groupName,groupId))
+=======
+                            list.add(AllMemberOverDueData(id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect, paidEmiAmount,totalGroupMember,groupName,groupId,emiNo))
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         }
                         binding?.overdueRv?.layoutManager = LinearLayoutManager(this@AllMemberList)
                         recyclerView = AllMemberOverDueListRV(list)

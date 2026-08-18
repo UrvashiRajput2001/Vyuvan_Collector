@@ -1,13 +1,25 @@
 package com.vyuvancollectors.Activity
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
 import android.content.Intent
+=======
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
+<<<<<<< HEAD
+=======
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import com.vyuvancollectors.Retrofit.ApiClient
 import com.vyuvancollectors.Retrofit.ApiInterface
 import com.vyuvancollectors.databinding.ActivityMainBinding
@@ -32,6 +44,12 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding?.root)
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         binding?.passwordTxt?.transformationMethod = PasswordTransformationMethod()
 
         binding?.codeTxt?.setOnClickListener {
@@ -85,16 +103,33 @@ class MainActivity : AppCompatActivity() {
                         if (status == true){
                             val token = items.getString("token")
                             val agentId = items.getString("_id")
+<<<<<<< HEAD
+=======
+                            val agentName = items.getString("name")
+                            val cityCode = items.getString("cityCode")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val sharedPreferences = getSharedPreferences("VYuvan_Collector", MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.putString("token",token)
                             editor.putString("agentId",agentId)
+<<<<<<< HEAD
                             editor.apply()
 
                             val intent = Intent(this@MainActivity, LoansType::class.java)
                             intent.putExtra("token", "$token")
                             intent.putExtra("agentId","$agentId")
+=======
+                            editor.putString("agentName",agentName)
+                            editor.apply()
+
+                            Log.e("agentName","$agentName")
+
+                            val intent = Intent(this@MainActivity, LoansType::class.java)
+                            intent.putExtra("token", "$token")
+                            intent.putExtra("agentId","$agentId")
+                            intent.putExtra("agentName","$agentName")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             startActivity(intent)
                             finish()
                             binding?.btnSubmit?.isEnabled = false

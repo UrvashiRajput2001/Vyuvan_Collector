@@ -4,9 +4,17 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+<<<<<<< HEAD
 import com.vyuvancollectors.databinding.ActivityPdfYearlyEmirecyclerViewBinding
 
 class PdfYearlyEMIRecyclerView(private val list: ArrayList<PdfYearlyEmiData>) : RecyclerView.Adapter<PdfYearlyEMIRecyclerView.MyViewHolder>() {
+=======
+import com.vyuvancollectors.PersonalLoan.PDF.Daily.PdfDailyEmiData
+import com.vyuvancollectors.databinding.ActivityPdfYearlyEmirecyclerViewBinding
+import java.util.ArrayList
+
+class PdfYearlyEMIRecyclerView(private val list: ArrayList<PdfDailyEmiData>) : RecyclerView.Adapter<PdfYearlyEMIRecyclerView.MyViewHolder>() {
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 

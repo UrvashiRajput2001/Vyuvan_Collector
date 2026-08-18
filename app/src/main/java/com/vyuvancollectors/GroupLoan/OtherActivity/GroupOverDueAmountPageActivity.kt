@@ -29,6 +29,16 @@ class GroupOverDueAmountPageActivity : AppCompatActivity() {
         binding = ActivityGroupOverDueAmountPageBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+<<<<<<< HEAD
+=======
+        binding?.progressBar?.isVisible = true
+        binding?.txtBar?.isVisible = true
+        binding?.swipeLl?.isRefreshing = false
+        binding?.messageTxt?.isVisible = false
+        binding?.swipeLl?.isRefreshing = false
+        binding?.sorryImg?.isVisible = false
+
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         API()
 
         binding?.backBtn?.setOnClickListener {

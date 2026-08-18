@@ -26,6 +26,10 @@ class EmiListMonthlyAdapter(private val list :List<MonthlyEmiModal>) : RecyclerV
         holder.binding.emiAmountTxt.text = "EMIAmount : ${list[position].emiAmount}"
         holder.binding.dateOfCollectionTxt.text = "DateOfCollection : ${list[position].doc}"
         holder.binding.remainingAmountTxt.text = "RemainingAmount : ${list[position].remainingAmount}"
+<<<<<<< HEAD
+=======
+        holder.binding.emiNumTxt.text = "EMI NO. : ${list[position].emiNo}"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         if (status == "1"){
             holder.binding.statusTxt.text = "Paid"

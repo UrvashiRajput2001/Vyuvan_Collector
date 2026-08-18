@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:layout_marginBottom="10dp"
+=======
+    android:paddingBottom="10dp"
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     tools:context=".GroupLoan.OtherActivity.GroupOverDueAmountPageRV">
 
     <androidx.cardview.widget.CardView
@@ -154,6 +158,17 @@
                 android:textSize="10sp"
                 app:backgroundTint="@null"
                 tools:ignore="MissingConstraints" />
+<<<<<<< HEAD
+=======
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:max="100"
+                android:progress="1"
+                android:layout_gravity="bottom"/>
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         </LinearLayout>
 
 

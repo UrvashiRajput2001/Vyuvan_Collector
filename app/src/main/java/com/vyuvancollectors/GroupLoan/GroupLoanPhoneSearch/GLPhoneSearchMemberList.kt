@@ -165,6 +165,10 @@ class GLPhoneSearchMemberList : AppCompatActivity() {
                             val loanId = jsonArray.getJSONObject(i).getString("loanId")
                             val status = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
@@ -172,7 +176,11 @@ class GLPhoneSearchMemberList : AppCompatActivity() {
 
                             list.add(
                                 AllMemberPendingData(
+<<<<<<< HEAD
                                     id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId
+=======
+                                    id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect,totalGroupMember,groupName,groupId,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -253,13 +261,21 @@ class GLPhoneSearchMemberList : AppCompatActivity() {
                             val lastDateCollected = jsonArray.getJSONObject(i).getString("lastDateCollected")
                             val dateOfCollect = jsonArray.getJSONObject(i).getString("dateOfCollect")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
                             list.add(
                                 AllMemberPaidData(
+<<<<<<< HEAD
                                     agentId,token,name,phone,collectionType,paidEmiAmount,emiStatus,dateOfCollect,lastDateCollected
+=======
+                                    agentId,token,name,phone,collectionType,paidEmiAmount,emiStatus,dateOfCollect,lastDateCollected,emiNo
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                                 )
                             )
                         }
@@ -337,12 +353,20 @@ class GLPhoneSearchMemberList : AppCompatActivity() {
                             val loanId = jsonArray.getJSONObject(i).getString("loanId")
                             val status = jsonArray.getJSONObject(i).getString("status")
                             val customerDetails = jsonArray.getJSONObject(i).get("customerDetails")
+<<<<<<< HEAD
+=======
+                            val emiNo = jsonArray.getJSONObject(i).getString("emiNumber")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                             val jsonObject2 = JSONTokener(customerDetails.toString()).nextValue() as JSONObject
                             val name = jsonObject2.getString("name")
                             val phone = jsonObject2.getString("phone")
 
+<<<<<<< HEAD
                             list.add(AllMemberOverDueData(id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect, paidEmiAmount,totalGroupMember,groupName,groupId))
+=======
+                            list.add(AllMemberOverDueData(id,token,name,phone,collectionType,emiAmount,status,agentId,customerId,loanId,dateOfCollect, paidEmiAmount,totalGroupMember,groupName,groupId,emiNo))
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         }
                         binding?.overdueRv?.layoutManager = LinearLayoutManager(this@GLPhoneSearchMemberList)
                         recyclerView = GLMemberOverdueRV(list)

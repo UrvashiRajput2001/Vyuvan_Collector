@@ -15,6 +15,11 @@ import com.vyuvancollectors.Retrofit.ApiClient
 import com.vyuvancollectors.Retrofit.ApiInterface
 import com.vyuvancollectors.databinding.ActivityMonthlyInGroupBinding
 import com.google.gson.JsonObject
+<<<<<<< HEAD
+=======
+import com.vyuvancollectors.GroupLoan.AdapterInGroup.AllGroupRv
+import com.vyuvancollectors.GroupLoan.Group_Data_Class.AllGroupDetailsData
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import org.json.JSONArray
@@ -50,7 +55,11 @@ class MonthlyInGroup : AppCompatActivity() {
         binding?.sorryImg?.isVisible = false
         binding?.monthlyEmiRv?.isVisible = false
 
+<<<<<<< HEAD
         forMonthlyApi()
+=======
+        forAllAPI()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
         binding?.searchEt?.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -83,7 +92,11 @@ class MonthlyInGroup : AppCompatActivity() {
 
         binding?.swipeLl?.setOnRefreshListener {
             binding?.swipeLl?.isRefreshing = false
+<<<<<<< HEAD
             forMonthlyApi()
+=======
+            forAllAPI()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.messageTxt?.isVisible = false
             binding?.sorryImg?.isVisible = false
             recyclerView!!.notifyDataSetChanged()
@@ -91,32 +104,54 @@ class MonthlyInGroup : AppCompatActivity() {
         }
     }
 
+<<<<<<< HEAD
     private fun forMonthlyApi(){
         val monthly = "Monthly"
+=======
+
+
+    private fun forAllAPI(){
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         val bundle = intent.extras!!
         @Suppress("DEPRECATION")
         val token = bundle.get("token").toString()
         @Suppress("DEPRECATION")
         val agentId = bundle.get("agentId").toString()
 
+<<<<<<< HEAD
         Log.e("forMonthlyApi","forMonthlyApi $agentId")
 
         val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
         val call = apiClient?.getTwoHeadersWithTokenData(
             token,typeAgent, "v1/groupDetails/$agentId")
+=======
+        val monthly = "Monthly"
+
+        val apiClient = ApiClient.getInstance()?.create(ApiInterface::class.java)
+        val call = apiClient?.getTwoHeadersWithTokenData(
+            token,typeAgent,
+            "v1/groupDetails/$agentId/$monthly"
+        )
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         Log.e("urvashi", "$token  token")
         call?.enqueue(object : Callback<JsonObject> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+<<<<<<< HEAD
                 Log.e("urvashi","${response}")
                 if (response.isSuccessful) {
 
                     val list = ArrayList<MonthlyGroupDetailsData>()
 
+=======
+                if (response.isSuccessful) {
+                    val list = ArrayList<MonthlyGroupDetailsData>()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
                     binding?.monthlyEmiRv?.isVisible = true
                     val res = response.body()
+<<<<<<< HEAD
                     val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
 
 
@@ -194,10 +229,79 @@ class MonthlyInGroup : AppCompatActivity() {
 
         })
 
+=======
+
+                    Log.e("all det","$res")
+
+                    val jsonObject = JSONTokener(res.toString()).nextValue() as JSONObject
+                    val status = jsonObject.get("status")
+                    val message = jsonObject.get("message")
+                    val items = jsonObject.get("items")
+
+                    val jsonArray = JSONTokener(items.toString()).nextValue() as JSONArray
+
+                    if(jsonArray.isNull(0)){
+                        binding?.messageTxt?.isVisible = true
+                        binding?.messageTxt?.text = "No EMI's"
+                        binding?.sorryImg?.isVisible = true
+                    }
+
+                    if (status == true) {
+                        for (i in 0 until jsonArray.length()) {
+                            val groupId = jsonArray.getJSONObject(i).getString("groupId")
+                            val loanAmount = jsonArray.getJSONObject(i).getString("loanAmount")
+                            val interest = jsonArray.getJSONObject(i).getString("interest")
+                            val disburseDate = jsonArray.getJSONObject(i).getString("disburseDate")
+                            val collectionType = jsonArray.getJSONObject(i).getString("collectionType")
+                            val groupDetails = jsonArray.getJSONObject(i).getString("groupDetails")
+
+                            val jsonObject2 = JSONTokener(groupDetails.toString()).nextValue() as JSONObject
+                            val teamLeadName = jsonObject2.getString("teamLeadName")
+                            val totalGroupMember = jsonObject2.getString("totalGroupMember")
+                            val leaderDetails = jsonArray.getJSONObject(i).getString("leaderDetails")
+
+                            val jsonObject3 = JSONTokener(leaderDetails.toString()).nextValue() as JSONObject
+                            val groupName = jsonObject3.getString("groupName")
+                            val groupLeaderName = jsonObject3.getString("groupLeaderName")
+                            val groupLeaderMobile = jsonObject3.getString("groupLeaderMobile")
+
+                            list.add(
+                                MonthlyGroupDetailsData(
+                                agentId,
+                                token,
+                                groupId,
+                                loanAmount,
+                                interest,
+                                teamLeadName,
+                                groupLeaderName,
+                                collectionType,
+                                groupName,
+                                totalGroupMember,
+                                groupLeaderMobile,
+                                disburseDate
+                            )
+                            )
+                        }
+                        binding?.monthlyEmiRv?.layoutManager = LinearLayoutManager(this@MonthlyInGroup)
+                        recyclerView = MonthlyGroupRv(list)
+                        binding?.monthlyEmiRv?.adapter = recyclerView
+                        recyclerView!!.notifyDataSetChanged()
+                    }
+                }
+            }
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                Log.e("urvashi", "$t your response is fail")
+            }
+        })
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
     }
 
     private fun forPhoneSearch() {
         if (binding?.searchEt?.text?.length == 10){
+<<<<<<< HEAD
+=======
+            binding?.monthlyEmiRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
             val collectionType = "Monthly"
 
@@ -224,11 +328,16 @@ class MonthlyInGroup : AppCompatActivity() {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                 if (response.isSuccessful) {
                     val list = ArrayList<MonthlyGroupDetailsData>()
+<<<<<<< HEAD
 
                     binding?.progressBar?.isVisible = false
                     binding?.txtBar?.isVisible = false
                     binding?.monthlyEmiRv?.isVisible = true
                     val res = response.body()
+=======
+                    val res = response.body()
+                    Log.e("items","$res")
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
 
                     val jsonObjectMain = JSONTokener(res.toString()).nextValue() as JSONObject
                     val status = jsonObjectMain.get("status")
@@ -244,6 +353,12 @@ class MonthlyInGroup : AppCompatActivity() {
                         binding?.sorryImg?.isVisible = true
                     }
                     if (status == true) {
+<<<<<<< HEAD
+=======
+                        binding?.progressBar?.isVisible = false
+                        binding?.txtBar?.isVisible = false
+                        binding?.monthlyEmiRv?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                         for (i in 0 until jsonArrayMain.length()) {
                             val groupDetail = jsonArrayMain.getJSONObject(i).getString("groupDetail")
                             val jsonObject = JSONTokener(groupDetail.toString()).nextValue() as JSONObject
@@ -286,6 +401,15 @@ class MonthlyInGroup : AppCompatActivity() {
                         recyclerView = MonthlyGroupRv(list)
                         binding?.monthlyEmiRv?.adapter = recyclerView
                         recyclerView!!.notifyDataSetChanged()
+<<<<<<< HEAD
+=======
+                    }else{
+                        binding?.monthlyEmiRv?.isVisible = false
+                        binding?.messageTxt?.isVisible = true
+                        binding?.messageTxt?.text = "No EMI's"
+                        binding?.monthlyEmiRv?.isVisible = false
+                        binding?.sorryImg?.isVisible = true
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
                     }
                 }
             }
@@ -297,12 +421,20 @@ class MonthlyInGroup : AppCompatActivity() {
         })
 
     }else{
+<<<<<<< HEAD
+=======
+        binding?.monthlyEmiRv?.isVisible = false
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
             binding?.progressBar?.isVisible = false
             binding?.txtBar?.isVisible = false
             binding?.messageTxt?.isVisible = true
             binding?.sorryImg?.isVisible = false
             binding?.messageTxt?.text = "Please Enter 10 Digit Number"
             binding?.monthlyEmiRv?.isVisible = false
+<<<<<<< HEAD
+=======
+            forAllAPI()
+>>>>>>> e6194dd065e378a06eb4b376475ff1604e6d4bb3
         }
 
 
